@@ -17,6 +17,11 @@
 		E4602FA823E06D6C001E7978 /* TopItemsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA223E06D6C001E7978 /* TopItemsProtocols.swift */; };
 		E4602FA923E06D6C001E7978 /* TopItemsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA323E06D6C001E7978 /* TopItemsAssembly.swift */; };
 		E4602FAA23E06D6C001E7978 /* TopItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA423E06D6C001E7978 /* TopItemsInteractor.swift */; };
+		E4602FAE23E06E0F001E7978 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FAD23E06E0F001E7978 /* PostViewModel.swift */; };
+		E4602FB123E06E41001E7978 /* TableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FB023E06E41001E7978 /* TableElement.swift */; };
+		E4602FB423E06EFE001E7978 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FB323E06EFE001E7978 /* Command.swift */; };
+		E4602FB823E06F77001E7978 /* TopItemsProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FB723E06F77001E7978 /* TopItemsProps.swift */; };
+		E4602FBB23E06FEE001E7978 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FBA23E06FEE001E7978 /* BaseViewController.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
 		E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */; };
 		E47204D623E03B1F00A6DA0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D523E03B1F00A6DA0D /* ViewController.swift */; };
@@ -47,6 +52,11 @@
 		E4602FA223E06D6C001E7978 /* TopItemsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsProtocols.swift; sourceTree = "<group>"; };
 		E4602FA323E06D6C001E7978 /* TopItemsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsAssembly.swift; sourceTree = "<group>"; };
 		E4602FA423E06D6C001E7978 /* TopItemsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsInteractor.swift; sourceTree = "<group>"; };
+		E4602FAD23E06E0F001E7978 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		E4602FB023E06E41001E7978 /* TableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableElement.swift; sourceTree = "<group>"; };
+		E4602FB323E06EFE001E7978 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		E4602FB723E06F77001E7978 /* TopItemsProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsProps.swift; sourceTree = "<group>"; };
+		E4602FBA23E06FEE001E7978 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +117,9 @@
 		E4602F9223E06026001E7978 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E4602FB923E06FE0001E7978 /* ViewControllers */,
+				E4602FB223E06EE7001E7978 /* Classes */,
+				E4602FAF23E06E36001E7978 /* Protocols */,
 				E4602F9C23E06C86001E7978 /* Network Layer */,
 				E4602F9323E0602C001E7978 /* Models */,
 			);
@@ -149,6 +162,8 @@
 		E4602F9E23E06D49001E7978 /* Top Items */ = {
 			isa = PBXGroup;
 			children = (
+				E4602FB523E06F60001E7978 /* Props */,
+				E4602FAC23E06DFC001E7978 /* Models */,
 				E4602F9F23E06D6C001E7978 /* TopItemsPresenter.swift */,
 				E4602FA023E06D6C001E7978 /* TopItemsRouter.swift */,
 				E4602FA123E06D6C001E7978 /* TopItemsViewController.swift */,
@@ -157,6 +172,46 @@
 				E4602FA423E06D6C001E7978 /* TopItemsInteractor.swift */,
 			);
 			path = "Top Items";
+			sourceTree = "<group>";
+		};
+		E4602FAC23E06DFC001E7978 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4602FAD23E06E0F001E7978 /* PostViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4602FAF23E06E36001E7978 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E4602FB023E06E41001E7978 /* TableElement.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E4602FB223E06EE7001E7978 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E4602FB323E06EFE001E7978 /* Command.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E4602FB523E06F60001E7978 /* Props */ = {
+			isa = PBXGroup;
+			children = (
+				E4602FB723E06F77001E7978 /* TopItemsProps.swift */,
+			);
+			path = Props;
+			sourceTree = "<group>";
+		};
+		E4602FB923E06FE0001E7978 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4602FBA23E06FEE001E7978 /* BaseViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E47204C523E03B1F00A6DA0D = {
@@ -307,11 +362,16 @@
 				E4602F9A23E06971001E7978 /* NetworkLogger.swift in Sources */,
 				E4602F9823E06941001E7978 /* NetworkLayer.swift in Sources */,
 				E4602FAA23E06D6C001E7978 /* TopItemsInteractor.swift in Sources */,
+				E4602FBB23E06FEE001E7978 /* BaseViewController.swift in Sources */,
 				E4592F4923E05D2C00102B8D /* RedditAPI.swift in Sources */,
 				E47204D623E03B1F00A6DA0D /* ViewController.swift in Sources */,
+				E4602FB423E06EFE001E7978 /* Command.swift in Sources */,
 				E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */,
+				E4602FAE23E06E0F001E7978 /* PostViewModel.swift in Sources */,
 				E4602FA823E06D6C001E7978 /* TopItemsProtocols.swift in Sources */,
+				E4602FB123E06E41001E7978 /* TableElement.swift in Sources */,
 				E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */,
+				E4602FB823E06F77001E7978 /* TopItemsProps.swift in Sources */,
 				E4602F9623E06041001E7978 /* Post.swift in Sources */,
 				E4602FA923E06D6C001E7978 /* TopItemsAssembly.swift in Sources */,
 				E4602FA523E06D6C001E7978 /* TopItemsPresenter.swift in Sources */,

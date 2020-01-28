@@ -7,14 +7,25 @@
 
 import UIKit
 
-final class TopItemsViewController: UIViewController, TopItemsViewProtocol {
-
-	var presenter: TopItemsPresenterProtocol?
-
-	override func viewDidLoad() {
-        super.viewDidLoad()
+final class TopItemsViewController: BaseViewController, TopItemsViewProtocol {
+    // MARK: - Props
+    var props: TopItemsProps = .initial {
+        didSet {
+            self.view.setNeedsLayout()
+        }
     }
 
-    func showError(with text: String) { }
+    // MARK: - Dependencies
+	var presenter: TopItemsPresenterProtocol?
 
+    // MARK: View Controller lifecycle
+	override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
+    }
+
+    // MARK: TopItemsViewProtocol
+    func showError(with text: String) {
+
+    }
 }
