@@ -14,7 +14,8 @@ protocol TopItemsRouterProtocol: class {
 
 // MARK: Presenter -
 protocol TopItemsPresenterProtocol: class {
-
+    func viewIsReady()
+    func refreshData()
 }
 
 // MARK: Interactor -
@@ -30,7 +31,9 @@ protocol TopItemsInteractorInputProtocol: class {
 
 // MARK: View -
 protocol TopItemsViewProtocol: class {
+    var props: TopItemsProps { get set }
+
     func showError(with text: String)
-    
+
     /* Presenter -> ViewController */
 }
