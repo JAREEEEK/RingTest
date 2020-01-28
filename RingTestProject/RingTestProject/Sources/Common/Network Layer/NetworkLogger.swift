@@ -1,6 +1,6 @@
 //
 //  NetworkLogger.swift
-//  Network Layer
+//  RingTestProject
 //
 //  Created by Yaroslav Nosik on 28.01.2020.
 //  Copyright © 2020 Yaroslav Nosik. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct NetworkLogger {
+struct NetworkLogger {
     func logRequest(with request: URLRequest) {
         #if DEBUG
         print("\n - - - - - - - - - - Request - - - - - - - - - - \n")

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4592F4923E05D2C00102B8D /* RedditAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4592F4823E05D2C00102B8D /* RedditAPI.swift */; };
+		E4602F9623E06041001E7978 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602F9523E06041001E7978 /* Post.swift */; };
+		E4602F9823E06941001E7978 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602F9723E06941001E7978 /* NetworkLayer.swift */; };
+		E4602F9A23E06971001E7978 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602F9923E06971001E7978 /* NetworkLogger.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
 		E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */; };
 		E47204D623E03B1F00A6DA0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D523E03B1F00A6DA0D /* ViewController.swift */; };
@@ -17,20 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E4592F4123E05C1C00102B8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E47204FD23E03C6600A6DA0D;
-			remoteInfo = "Network Layer";
-		};
-		E4592F4323E05C1C00102B8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E472050623E03C6600A6DA0D;
-			remoteInfo = "Network LayerTests";
-		};
 		E47204E523E03B2100A6DA0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E47204C623E03B1F00A6DA0D /* Project object */;
@@ -41,7 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Network Layer.xcodeproj"; path = "Modules/Network Layer/Network Layer.xcodeproj"; sourceTree = "<group>"; };
+		E4592F4823E05D2C00102B8D /* RedditAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAPI.swift; sourceTree = "<group>"; };
+		E4602F9523E06041001E7978 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E4602F9723E06941001E7978 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		E4602F9923E06971001E7978 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,15 +66,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E4592F3D23E05C1C00102B8D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E4592F4223E05C1C00102B8D /* Network_Layer.framework */,
-				E4592F4423E05C1C00102B8D /* Network LayerTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E4592F4523E05C8F00102B8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,13 +75,63 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E4592F4623E05D0D00102B8D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E4602F9223E06026001E7978 /* Common */,
+				E4592F4723E05D1400102B8D /* API */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E4592F4723E05D1400102B8D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E4592F4823E05D2C00102B8D /* RedditAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E4602F9223E06026001E7978 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E4602F9C23E06C86001E7978 /* Network Layer */,
+				E4602F9323E0602C001E7978 /* Models */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E4602F9323E0602C001E7978 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4602F9423E06035001E7978 /* Codable */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4602F9423E06035001E7978 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				E4602F9523E06041001E7978 /* Post.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		E4602F9C23E06C86001E7978 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E4602F9723E06941001E7978 /* NetworkLayer.swift */,
+				E4602F9923E06971001E7978 /* NetworkLogger.swift */,
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
 		E47204C523E03B1F00A6DA0D = {
 			isa = PBXGroup;
 			children = (
 				E47204D123E03B1F00A6DA0D /* AppDelegate.swift */,
 				E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */,
 				E47204D023E03B1F00A6DA0D /* RingTestProject */,
-				E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */,
 				E47204E723E03B2100A6DA0D /* RingTestProjectTests */,
 				E47204CF23E03B1F00A6DA0D /* Products */,
 			);
@@ -115,6 +149,7 @@
 		E47204D023E03B1F00A6DA0D /* RingTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				E4592F4623E05D0D00102B8D /* Sources */,
 				E4592F4523E05C8F00102B8D /* Supporting Files */,
 				E47204D523E03B1F00A6DA0D /* ViewController.swift */,
 				E47204D723E03B1F00A6DA0D /* Main.storyboard */,
@@ -200,12 +235,6 @@
 			mainGroup = E47204C523E03B1F00A6DA0D;
 			productRefGroup = E47204CF23E03B1F00A6DA0D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E4592F3D23E05C1C00102B8D /* Products */;
-					ProjectRef = E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E47204CD23E03B1F00A6DA0D /* RingTestProject */,
@@ -213,23 +242,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E4592F4223E05C1C00102B8D /* Network_Layer.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Network_Layer.framework;
-			remoteRef = E4592F4123E05C1C00102B8D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E4592F4423E05C1C00102B8D /* Network LayerTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Network LayerTests.xctest";
-			remoteRef = E4592F4323E05C1C00102B8D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E47204CC23E03B1F00A6DA0D /* Resources */ = {
@@ -256,9 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4602F9A23E06971001E7978 /* NetworkLogger.swift in Sources */,
+				E4602F9823E06941001E7978 /* NetworkLayer.swift in Sources */,
+				E4592F4923E05D2C00102B8D /* RedditAPI.swift in Sources */,
 				E47204D623E03B1F00A6DA0D /* ViewController.swift in Sources */,
 				E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */,
 				E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */,
+				E4602F9623E06041001E7978 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +436,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76GG7HFJPV;
-				INFOPLIST_FILE = RingTestProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RingTestProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76GG7HFJPV;
-				INFOPLIST_FILE = RingTestProject/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RingTestProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

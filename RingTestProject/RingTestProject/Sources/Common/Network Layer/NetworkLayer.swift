@@ -1,6 +1,6 @@
 //
 //  NetworkLayer.swift
-//  Network Layer
+//  RingTestProject
 //
 //  Created by Yaroslav Nosik on 28.01.2020.
 //  Copyright © 2020 Yaroslav Nosik. All rights reserved.
@@ -16,12 +16,14 @@ struct NetworkLayer {
     }
 
     private let logger = NetworkLogger()
+    private let session = URLSession.shared
+
 
     func add<T: Decodable>(_ request: URLRequest,
                            _ decoder: JSONDecoder = JSONDecoder()) -> AnyPublisher<Response<T>, Error> {
         self.logger.logRequest(with: request)
 
-        return URLSession.shared
+        return session
             .dataTaskPublisher(for: request)
             .tryMap { result -> Response<T> in
                 self.logger.logResponse(data: result.data)
