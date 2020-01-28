@@ -17,6 +17,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E4592F4123E05C1C00102B8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E47204FD23E03C6600A6DA0D;
+			remoteInfo = "Network Layer";
+		};
+		E4592F4323E05C1C00102B8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E472050623E03C6600A6DA0D;
+			remoteInfo = "Network LayerTests";
+		};
 		E47204E523E03B2100A6DA0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E47204C623E03B1F00A6DA0D /* Project object */;
@@ -27,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Network Layer.xcodeproj"; path = "Modules/Network Layer/Network Layer.xcodeproj"; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,10 +73,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4592F3D23E05C1C00102B8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4592F4223E05C1C00102B8D /* Network_Layer.framework */,
+				E4592F4423E05C1C00102B8D /* Network LayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4592F4523E05C8F00102B8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E47204DF23E03B2000A6DA0D /* Info.plist */,
+				E47204DC23E03B2000A6DA0D /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		E47204C523E03B1F00A6DA0D = {
 			isa = PBXGroup;
 			children = (
+				E47204D123E03B1F00A6DA0D /* AppDelegate.swift */,
+				E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */,
 				E47204D023E03B1F00A6DA0D /* RingTestProject */,
+				E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */,
 				E47204E723E03B2100A6DA0D /* RingTestProjectTests */,
 				E47204CF23E03B1F00A6DA0D /* Products */,
 			);
@@ -79,13 +115,10 @@
 		E47204D023E03B1F00A6DA0D /* RingTestProject */ = {
 			isa = PBXGroup;
 			children = (
-				E47204D123E03B1F00A6DA0D /* AppDelegate.swift */,
-				E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */,
+				E4592F4523E05C8F00102B8D /* Supporting Files */,
 				E47204D523E03B1F00A6DA0D /* ViewController.swift */,
 				E47204D723E03B1F00A6DA0D /* Main.storyboard */,
 				E47204DA23E03B2000A6DA0D /* Assets.xcassets */,
-				E47204DC23E03B2000A6DA0D /* LaunchScreen.storyboard */,
-				E47204DF23E03B2000A6DA0D /* Info.plist */,
 			);
 			path = RingTestProject;
 			sourceTree = "<group>";
@@ -167,6 +200,12 @@
 			mainGroup = E47204C523E03B1F00A6DA0D;
 			productRefGroup = E47204CF23E03B1F00A6DA0D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E4592F3D23E05C1C00102B8D /* Products */;
+					ProjectRef = E4592F3C23E05C1C00102B8D /* Network Layer.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E47204CD23E03B1F00A6DA0D /* RingTestProject */,
@@ -174,6 +213,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E4592F4223E05C1C00102B8D /* Network_Layer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Network_Layer.framework;
+			remoteRef = E4592F4123E05C1C00102B8D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E4592F4423E05C1C00102B8D /* Network LayerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Network LayerTests.xctest";
+			remoteRef = E4592F4323E05C1C00102B8D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E47204CC23E03B1F00A6DA0D /* Resources */ = {
