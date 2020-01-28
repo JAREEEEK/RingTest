@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TopItemsViewController: BaseViewController, TopItemsViewProtocol {
+final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, StoryboardInstantiable {
     // MARK: - Props
     var props: TopItemsProps = .initial {
         didSet {
@@ -26,14 +26,8 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
-        self.view.addSubview(tableView)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = .white
-        self.tableView.insetsContentViewsToSafeArea = true
-        self.tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
-
+        self.tableView.register(cellClass: PostTableViewCell.self)
+        self.addRefreshControl()
         self.presenter?.viewIsReady()
     }
 

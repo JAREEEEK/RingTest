@@ -9,7 +9,7 @@ import UIKit
 
 final class TopItemsAssembly {
     static func assemble() -> UIViewController {
-        let view = TopItemsViewController()
+        let view = TopItemsViewController.instantiateViewController()
         let interactor = TopItemsInteractor()
         let router = TopItemsRouter(view: view)
         let presenter = TopItemsPresenter(interface: view, interactor: interactor, router: router)

@@ -34,7 +34,7 @@ struct Post: Codable {
     var postId: String
     var title: String?
     var author: String?
-    var created: String?
+    var created: Double?
     var thumbnailWebLink: String?
     var preview: Preview?
     var numberOfComments: Int?

@@ -29,9 +29,13 @@
 		E4602FDA23E07766001E7978 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FD923E07766001E7978 /* PostTableViewCell.swift */; };
 		E4602FDC23E07835001E7978 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4602FDB23E07835001E7978 /* PostTableViewCell.xib */; };
 		E4602FDE23E07D6E001E7978 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FDD23E07D6E001E7978 /* Array+Extensions.swift */; };
+		E4602FE023E0987B001E7978 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FDF23E0987B001E7978 /* StoryboardInstantiable.swift */; };
+		E4602FE223E09974001E7978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4602FE123E09974001E7978 /* Main.storyboard */; };
+		E4602FE423E0A642001E7978 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FE323E0A642001E7978 /* UITableView+Extensions.swift */; };
+		E4602FE623E0A697001E7978 /* UINib+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FE523E0A697001E7978 /* UINib+Extensions.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
 		E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */; };
-		E47204D923E03B1F00A6DA0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204D723E03B1F00A6DA0D /* Main.storyboard */; };
+		E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */; };
 		E47204DB23E03B2000A6DA0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47204DA23E03B2000A6DA0D /* Assets.xcassets */; };
 		E47204DE23E03B2000A6DA0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204DC23E03B2000A6DA0D /* LaunchScreen.storyboard */; };
 		E47204E923E03B2100A6DA0D /* RingTestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204E823E03B2100A6DA0D /* RingTestProjectTests.swift */; };
@@ -63,9 +67,7 @@
 		E4602FB323E06EFE001E7978 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		E4602FB723E06F77001E7978 /* TopItemsProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsProps.swift; sourceTree = "<group>"; };
 		E4602FBA23E06FEE001E7978 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		E4602FC223E07292001E7978 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E4602FC423E07292001E7978 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LocalizableTopItems.strings; sourceTree = "<group>"; };
-		E4602FC523E0729F001E7978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E4602FC723E072A0001E7978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LocalizableTopItems.strings; sourceTree = "<group>"; };
 		E4602FC923E072E5001E7978 /* LocalizationTopItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationTopItems.swift; sourceTree = "<group>"; };
 		E4602FCB23E0734D001E7978 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -73,10 +75,14 @@
 		E4602FD923E07766001E7978 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		E4602FDB23E07835001E7978 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		E4602FDD23E07D6E001E7978 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		E4602FDF23E0987B001E7978 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		E4602FE123E09974001E7978 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E4602FE323E0A642001E7978 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		E4602FE523E0A697001E7978 /* UINib+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Extensions.swift"; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E47204D823E03B1F00A6DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E47204D823E03B1F00A6DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TopItemsViewController.storyboard; sourceTree = "<group>"; };
 		E47204DA23E03B2000A6DA0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47204DD23E03B2000A6DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47204DF23E03B2000A6DA0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				E47204DF23E03B2000A6DA0D /* Info.plist */,
+				E4602FE123E09974001E7978 /* Main.storyboard */,
 				E47204DC23E03B2000A6DA0D /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -189,6 +196,7 @@
 				E4602FA223E06D6C001E7978 /* TopItemsProtocols.swift */,
 				E4602FA323E06D6C001E7978 /* TopItemsAssembly.swift */,
 				E4602FA423E06D6C001E7978 /* TopItemsInteractor.swift */,
+				E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */,
 			);
 			path = "Top Items";
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				E4602FB023E06E41001E7978 /* TableElement.swift */,
+				E4602FDF23E0987B001E7978 /* StoryboardInstantiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -264,6 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				E4602FDD23E07D6E001E7978 /* Array+Extensions.swift */,
+				E4602FE323E0A642001E7978 /* UITableView+Extensions.swift */,
+				E4602FE523E0A697001E7978 /* UINib+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,7 +305,6 @@
 				E4602F9D23E06D3E001E7978 /* Modules */,
 				E4592F4623E05D0D00102B8D /* Sources */,
 				E4592F4523E05C8F00102B8D /* Supporting Files */,
-				E47204D723E03B1F00A6DA0D /* Main.storyboard */,
 				E47204DA23E03B2000A6DA0D /* Assets.xcassets */,
 			);
 			path = RingTestProject;
@@ -395,8 +405,9 @@
 				E47204DE23E03B2000A6DA0D /* LaunchScreen.storyboard in Resources */,
 				E4602FDC23E07835001E7978 /* PostTableViewCell.xib in Resources */,
 				E47204DB23E03B2000A6DA0D /* Assets.xcassets in Resources */,
+				E4602FE223E09974001E7978 /* Main.storyboard in Resources */,
 				E4602FBF23E0726C001E7978 /* LocalizableTopItems.strings in Resources */,
-				E47204D923E03B1F00A6DA0D /* Main.storyboard in Resources */,
+				E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,12 +428,14 @@
 				E4602FA623E06D6C001E7978 /* TopItemsRouter.swift in Sources */,
 				E4602FA723E06D6C001E7978 /* TopItemsViewController.swift in Sources */,
 				E4602F9A23E06971001E7978 /* NetworkLogger.swift in Sources */,
+				E4602FE423E0A642001E7978 /* UITableView+Extensions.swift in Sources */,
 				E4602FCA23E072E5001E7978 /* LocalizationTopItems.swift in Sources */,
 				E4602F9823E06941001E7978 /* NetworkLayer.swift in Sources */,
 				E4602FAA23E06D6C001E7978 /* TopItemsInteractor.swift in Sources */,
 				E4602FCC23E0734D001E7978 /* Localization.swift in Sources */,
 				E4602FBB23E06FEE001E7978 /* BaseViewController.swift in Sources */,
 				E4592F4923E05D2C00102B8D /* RedditAPI.swift in Sources */,
+				E4602FE023E0987B001E7978 /* StoryboardInstantiable.swift in Sources */,
 				E4602FD423E0752B001E7978 /* Lens.swift in Sources */,
 				E4602FB423E06EFE001E7978 /* Command.swift in Sources */,
 				E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */,
@@ -434,6 +447,7 @@
 				E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */,
 				E4602FB823E06F77001E7978 /* TopItemsProps.swift in Sources */,
 				E4602F9623E06041001E7978 /* Post.swift in Sources */,
+				E4602FE623E0A697001E7978 /* UINib+Extensions.swift in Sources */,
 				E4602FA923E06D6C001E7978 /* TopItemsAssembly.swift in Sources */,
 				E4602FA523E06D6C001E7978 /* TopItemsPresenter.swift in Sources */,
 			);
@@ -467,20 +481,18 @@
 			name = LocalizableTopItems.strings;
 			sourceTree = "<group>";
 		};
-		E47204D723E03B1F00A6DA0D /* Main.storyboard */ = {
+		E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E47204D823E03B1F00A6DA0D /* Base */,
 			);
-			name = Main.storyboard;
+			name = TopItemsViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		E47204DC23E03B2000A6DA0D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E47204DD23E03B2000A6DA0D /* Base */,
-				E4602FC223E07292001E7978 /* ru */,
-				E4602FC523E0729F001E7978 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

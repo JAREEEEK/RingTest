@@ -20,12 +20,15 @@ protocol TopItemsPresenterProtocol: class {
 
 // MARK: Interactor -
 protocol TopItemsInteractorOutputProtocol: class {
-
+    func didLoad(posts: [Child])
+    func didFailLoading(with error: Error)
     /* Interactor -> Presenter */
 }
 
 protocol TopItemsInteractorInputProtocol: class {
-
+    func loadTopItems()
+    func cancelRequest()
+    
     /* Presenter -> Interactor */
 }
 

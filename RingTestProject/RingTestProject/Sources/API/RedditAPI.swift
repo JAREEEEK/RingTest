@@ -15,8 +15,8 @@ enum RedditAPI {
 }
 
 extension RedditAPI {
-    static func topItems(_ limit: Int = 20, _ before: String? = nil, _ after: String? = nil) -> AnyPublisher<[TopItems], Error> {
-        var url = base.appendingPathComponent("top.json?limit=\(limit)")
+    static func topItems(_ limit: Int = 20, _ before: String? = nil, _ after: String? = nil) -> AnyPublisher<TopItems, Error> {
+        var url = base.appendingPathComponent("top.json")
 
         if let before = before {
             url = url.appendingPathComponent("&before=\(before)")

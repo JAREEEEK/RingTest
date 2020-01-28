@@ -13,10 +13,10 @@ final class PostTableViewCell: UITableViewCell, TableCell {
     static let identifier = "PostTableViewCell"
 
     @IBOutlet weak var thumbnailImageView: UIImageView?
-    @IBOutlet weak var titleLabel: UILabel?
-    @IBOutlet weak var authorLabel: UILabel?
-    @IBOutlet weak var timeLabel: UILabel?
-    @IBOutlet weak var commentsLabel: UILabel?
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var commentsLabel: UILabel!
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -29,5 +29,9 @@ final class PostTableViewCell: UITableViewCell, TableCell {
 
     func setup(with element: TableElement) {
         guard let model = element.model as? PostViewModel else { return }
+        self.titleLabel.text = model.title
+        self.authorLabel.text = model.author
+        self.timeLabel.text = model.createdAt
+        self.commentsLabel.text = model.comments
     }
 }

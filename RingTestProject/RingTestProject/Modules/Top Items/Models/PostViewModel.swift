@@ -9,5 +9,15 @@
 import Foundation
 
 final class PostViewModel {
-    
+    let title: String?
+    let author: String?
+    let createdAt: String?
+    let comments: String?
+
+    init(title: String?, author: String?, createdAt: String?, comments: String?) {
+        self.title = title
+        self.author = author
+        self.createdAt = createdAt
+        self.comments = comments
+    }
 }
