@@ -16,8 +16,8 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol {
     }
 
     // MARK: - Dependencies
+    @IBOutlet weak var tableView: UITableView!
 	var presenter: TopItemsPresenterProtocol?
-    private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
     private let localization = LocalizationTopItems()
 
@@ -32,16 +32,14 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol {
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = .white
         self.tableView.insetsContentViewsToSafeArea = true
-//        self.tableView.register(TransanctionCell.self, forCellReuseIdentifier: TransanctionCell.identifier)
-
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        ])
+        self.tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
 
         self.presenter?.viewIsReady()
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.setupState()
     }
 
     // MARK: TopItemsViewProtocol
@@ -77,16 +75,37 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol {
         self.tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(onRefreshing), for: .valueChanged)
     }
+
+    private func setupState() {
+        switch props.state {
+        case .loading:
+            self.showActivityView()
+        case .posts(_):
+            self.tableView.reloadData()
+            self.hideActivityView()
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return props.state.posts?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let element = props.state.posts?[safe: indexPath.row],
+            let cell = tableView.dequeueReusableCell(withIdentifier: element.identifier,
+                                                     for: indexPath) as? TableCell {
+            cell.setup(with: element)
+
+            return cell
+        }
         return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

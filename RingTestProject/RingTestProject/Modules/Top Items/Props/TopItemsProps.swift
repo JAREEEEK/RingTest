@@ -12,12 +12,11 @@ struct TopItemsProps {
     let state: State
 
     enum State {
-        case empty
         case loading
         case posts([TableElement])
     }
 
-    static let initial = TopItemsProps(state: .empty)
+    static let initial = TopItemsProps(state: .loading)
 }
 
 extension TopItemsProps {
@@ -30,17 +29,6 @@ extension TopItemsProps {
 }
 
 extension TopItemsProps.State {
-    var isEmpty: Bool {
-        get {
-            guard case .empty = self else { return false }
-            return true
-        }
-        set {
-            guard newValue else { fatalError("Setting false value forbidden") }
-            self = .empty
-        }
-    }
-
     var isLoading: Bool {
         get {
             guard case .loading = self else { return false }

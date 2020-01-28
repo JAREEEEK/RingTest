@@ -7,6 +7,11 @@
 //
 
 import Foundation
+import UIKit
+
+protocol TableCell: UITableViewCell {
+    func setup(with element: TableElement)
+}
 
 struct TableElement {
     let identifier: String

@@ -8,7 +8,6 @@
 import UIKit
 
 final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutputProtocol {
-
     weak private var view: TopItemsViewProtocol?
     private let interactor: TopItemsInteractorInputProtocol
     private let router: TopItemsRouterProtocol
@@ -19,6 +18,14 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
         self.view = interface
         self.interactor = interactor
         self.router = router
+    }
+
+    func viewIsReady() {
+
+    }
+
+    func refreshData() {
+
     }
 
 }

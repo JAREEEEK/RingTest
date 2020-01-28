@@ -8,6 +8,6 @@
 
 import Foundation
 
-final class PostViewModel: ViewModel {
+final class PostViewModel {
     
 }
