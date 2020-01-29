@@ -16,6 +16,7 @@ final class PhotoPresenter: PhotoPresenterProtocol, PhotoInteractorOutputProtoco
     private let interactor: PhotoInteractorInputProtocol
     private let router: PhotoRouterProtocol
     private let link: String
+    private let imageSaver = ImageSaver()
 
     // MARK: - Initialization
     init(link: String,
@@ -35,7 +36,13 @@ final class PhotoPresenter: PhotoPresenterProtocol, PhotoInteractorOutputProtoco
 
     // MARK: - PhotoInteractorOutputProtocol
     func didLoad(image: UIImage) {
-        print()
+        self.imageSaver.writeToPhotoAlbum(image: image) { [weak self] _, error in
+            if let error = error {
+                self?.view?.showError(with: error.localizedDescription)
+            } else {
+                self?.router.dismiss()
+            }
+        }
     }
 
     func didFailLoading(with description: String) {
@@ -45,13 +52,18 @@ final class PhotoPresenter: PhotoPresenterProtocol, PhotoInteractorOutputProtoco
     // MARK: - Props generation
     private func makeProps(with link: String) -> Props {
         Props(state: .photo(link),
-              didPushSaveButton: CommandWith { [weak self] in self?.didPushSaveButton() })
+              didPushSaveButton: CommandWith { [weak self] in self?.didPushSaveButton() },
+              didPushCancelButton: CommandWith { [weak self] in self?.didPushCancelButton() })
     }
 
     // MARK: - Private functions
     private func didPushSaveButton() {
         self.changeViewState(with: .loading)
         self.interactor.loadImage(with: link)
+    }
+
+    private func didPushCancelButton() {
+        self.router.dismiss()
     }
 
     private func changeViewState(with newState: State) {

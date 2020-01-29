@@ -46,6 +46,7 @@
 		E460301023E1B879001E7978 /* PhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460300A23E1B878001E7978 /* PhotoInteractor.swift */; };
 		E460301223E1BD3D001E7978 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301123E1BD3D001E7978 /* CustomError.swift */; };
 		E460301423E1CDC0001E7978 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301323E1CDC0001E7978 /* PhotoRouter.swift */; };
+		E460301623E1D2A3001E7978 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301523E1D2A3001E7978 /* ImageSaver.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
 		E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */; };
 		E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */; };
@@ -105,6 +106,7 @@
 		E460300A23E1B878001E7978 /* PhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInteractor.swift; sourceTree = "<group>"; };
 		E460301123E1BD3D001E7978 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		E460301323E1CDC0001E7978 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
+		E460301523E1D2A3001E7978 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				E4602FE923E17614001E7978 /* AsyncImage.swift */,
 				E4602FEB23E1766F001E7978 /* ImageDownloadHelper.swift */,
 				E460301123E1BD3D001E7978 /* CustomError.swift */,
+				E460301523E1D2A3001E7978 /* ImageSaver.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				E4602FAE23E06E0F001E7978 /* PostViewModel.swift in Sources */,
 				E4602FA823E06D6C001E7978 /* TopItemsProtocols.swift in Sources */,
 				E4602FB123E06E41001E7978 /* TableElement.swift in Sources */,
+				E460301623E1D2A3001E7978 /* ImageSaver.swift in Sources */,
 				E4602FDE23E07D6E001E7978 /* Array+Extensions.swift in Sources */,
 				E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */,
 				E4602FB823E06F77001E7978 /* TopItemsProps.swift in Sources */,

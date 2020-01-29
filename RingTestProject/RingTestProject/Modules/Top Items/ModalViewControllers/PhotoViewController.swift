@@ -62,10 +62,18 @@ final class PhotoViewController: BaseViewController, PhotoViewProtocol, Storyboa
             target: self,
             action: #selector(didPushSaveButton(_:))
         )
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
+            target: self,
+            action: #selector(didPushCancelButton(_:)))
     }
 
     // MARK: - Actions
     @objc func didPushSaveButton(_ sender: UIButton) {
         self.props.didPushSaveButton.perform()
+    }
+
+    @objc func didPushCancelButton(_ sender: UIButton) {
+        self.props.didPushCancelButton.perform()
     }
 }

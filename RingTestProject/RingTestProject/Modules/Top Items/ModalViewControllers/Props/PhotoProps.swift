@@ -12,25 +12,35 @@ import UIKit
 struct PhotoProps {
     let state: State
     let didPushSaveButton: Command
+    let didPushCancelButton: Command
 
     enum State {
         case loading, photo(String)
     }
 
-    static let initial = PhotoProps(state: .loading, didPushSaveButton: .empty)
+    static let initial = PhotoProps(state: .loading, didPushSaveButton: .empty, didPushCancelButton: .empty)
 }
 
 extension PhotoProps {
     static let stateLens = Lens<PhotoProps, State>(
         get: { $0.state },
         set: { value, props in
-            PhotoProps(state: value, didPushSaveButton: props.didPushSaveButton)
+            PhotoProps(state: value,
+                       didPushSaveButton: props.didPushSaveButton,
+                       didPushCancelButton: props.didPushCancelButton)
     }
     )
     static let didPushSaveButtonLens = Lens<PhotoProps, Command>(
         get: { $0.didPushSaveButton },
         set: { value, props in
-            PhotoProps(state: props.state, didPushSaveButton: value)
+            PhotoProps(state: props.state, didPushSaveButton: value, didPushCancelButton: props.didPushCancelButton)
+    }
+    )
+
+    static let didPushCancelButtonLens = Lens<PhotoProps, Command>(
+        get: { $0.didPushCancelButton },
+        set: { value, props in
+            PhotoProps(state: props.state, didPushSaveButton: props.didPushSaveButton, didPushCancelButton: value)
     }
     )
 }
