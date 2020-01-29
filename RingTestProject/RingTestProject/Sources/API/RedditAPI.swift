@@ -15,18 +15,26 @@ enum RedditAPI {
 }
 
 extension RedditAPI {
-    static func topItems(_ limit: Int = 20, _ before: String? = nil, _ after: String? = nil) -> AnyPublisher<TopItems, Error> {
-        var url = base.appendingPathComponent("top.json")
+    static func topItems(limit: Int = 20, before: String? = nil, after: String? = nil) -> AnyPublisher<TopItems, Error> {
+        let url = base.appendingPathComponent("top.json")
+
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        let limit = URLQueryItem(name: "limit", value: String(limit))
+        components?.queryItems = [limit]
 
         if let before = before {
-            url = url.appendingPathComponent("&before=\(before)")
+            let beforeItem = URLQueryItem(name: "before", value: before)
+            components?.queryItems?.append(beforeItem)
         }
 
         if let after = after {
-            url = url.appendingPathComponent("&after=\(after)")
+            let afterItem = URLQueryItem(name: "after", value: after)
+            components?.queryItems?.append(afterItem)
         }
 
-        return add(URLRequest(url: url))
+        let request = URLRequest(url: (components?.url)!)
+
+        return add(request)
     }
 
     static func add<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, Error> {

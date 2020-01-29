@@ -78,6 +78,7 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
         case .posts(_):
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
+            self.hideFooterActivityView()
             self.hideActivityView()
         }
     }
@@ -106,6 +107,13 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let model = props.state.posts?[safe: indexPath.row]?.model as? PostViewModel else { return }
         model.photo.cancelDownloading()
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let count = props.state.posts?.count, indexPath.row == count - 2 {
+            self.showFooterActivityView()
+            self.props.onNextPage.perform()
+        }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

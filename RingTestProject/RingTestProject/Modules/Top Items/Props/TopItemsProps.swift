@@ -10,20 +10,21 @@ import Foundation
 
 struct TopItemsProps {
     let state: State
+    let onNextPage: Command
 
     enum State {
         case loading
         case posts([TableElement])
     }
 
-    static let initial = TopItemsProps(state: .loading)
+    static let initial = TopItemsProps(state: .loading, onNextPage: .empty)
 }
 
 extension TopItemsProps {
     static let stateLens = Lens<TopItemsProps, State>(
         get: { $0.state },
         set: { value, props in
-            TopItemsProps(state: value)
+            TopItemsProps(state: value, onNextPage: props.onNextPage)
     }
     )
 }

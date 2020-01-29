@@ -9,12 +9,13 @@ import UIKit
 import Combine
 
 final class TopItemsInteractor: TopItemsInteractorInputProtocol {
-
     weak var presenter: TopItemsInteractorOutputProtocol?
     private var request: AnyCancellable?
+    private var before: String?
+    private var after: String?
 
     func loadTopItems() {
-        request = RedditAPI.topItems()
+        request = RedditAPI.topItems(limit: 20)
             .sink(receiveCompletion: { errorData in
                 switch errorData {
                 case .failure(let error):
@@ -22,8 +23,34 @@ final class TopItemsInteractor: TopItemsInteractorInputProtocol {
                 default: break
                 }
             }, receiveValue: { items in
+                self.before = items.data.before
+                self.after = items.data.after
                 self.presenter?.didLoad(posts: items.data.children)
             })
+    }
+
+    func loadMoreItems() {
+        // check if we can load more items
+        if after == nil { return }
+
+        // load more items
+        request = RedditAPI.topItems(limit: 20, before: before, after: after)
+            .sink(receiveCompletion: { errorData in
+                switch errorData {
+                case .failure(let error):
+                    self.presenter?.didFailLoading(with: error)
+                default: break
+                }
+            }, receiveValue: { items in
+                self.before = items.data.before
+                self.after = items.data.after
+                self.presenter?.didLoadMore(posts: items.data.children)
+            })
+    }
+
+    func clear() {
+        self.before = nil
+        self.after = nil
     }
 
     func cancelRequest() {
