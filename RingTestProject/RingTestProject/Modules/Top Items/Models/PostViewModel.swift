@@ -13,11 +13,17 @@ final class PostViewModel {
     let author: String?
     let createdAt: String?
     let comments: String?
+    let image: AsyncImage
 
-    init(title: String?, author: String?, createdAt: String?, comments: String?) {
+    init(title: String?,
+         author: String?,
+         createdAt: String?,
+         comments: String?,
+         image: AsyncImage) {
         self.title = title
         self.author = author
         self.createdAt = createdAt
         self.comments = comments
+        self.image = image
     }
 }

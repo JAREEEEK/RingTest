@@ -33,6 +33,8 @@
 		E4602FE223E09974001E7978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4602FE123E09974001E7978 /* Main.storyboard */; };
 		E4602FE423E0A642001E7978 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FE323E0A642001E7978 /* UITableView+Extensions.swift */; };
 		E4602FE623E0A697001E7978 /* UINib+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FE523E0A697001E7978 /* UINib+Extensions.swift */; };
+		E4602FEA23E17614001E7978 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FE923E17614001E7978 /* AsyncImage.swift */; };
+		E4602FEC23E1766F001E7978 /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FEB23E1766F001E7978 /* ImageDownloadHelper.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
 		E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */; };
 		E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */; };
@@ -79,6 +81,8 @@
 		E4602FE123E09974001E7978 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E4602FE323E0A642001E7978 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		E4602FE523E0A697001E7978 /* UINib+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Extensions.swift"; sourceTree = "<group>"; };
+		E4602FE923E17614001E7978 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		E4602FEB23E1766F001E7978 /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 			children = (
 				E4602FB323E06EFE001E7978 /* Command.swift */,
 				E4602FCB23E0734D001E7978 /* Localization.swift */,
+				E4602FE923E17614001E7978 /* AsyncImage.swift */,
+				E4602FEB23E1766F001E7978 /* ImageDownloadHelper.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4602FEA23E17614001E7978 /* AsyncImage.swift in Sources */,
 				E4602FA623E06D6C001E7978 /* TopItemsRouter.swift in Sources */,
 				E4602FA723E06D6C001E7978 /* TopItemsViewController.swift in Sources */,
 				E4602F9A23E06971001E7978 /* NetworkLogger.swift in Sources */,
@@ -446,6 +453,7 @@
 				E4602FDE23E07D6E001E7978 /* Array+Extensions.swift in Sources */,
 				E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */,
 				E4602FB823E06F77001E7978 /* TopItemsProps.swift in Sources */,
+				E4602FEC23E1766F001E7978 /* ImageDownloadHelper.swift in Sources */,
 				E4602F9623E06041001E7978 /* Post.swift in Sources */,
 				E4602FE623E0A697001E7978 /* UINib+Extensions.swift in Sources */,
 				E4602FA923E06D6C001E7978 /* TopItemsAssembly.swift in Sources */,
