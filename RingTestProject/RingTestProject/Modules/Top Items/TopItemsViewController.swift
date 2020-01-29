@@ -26,7 +26,6 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
         super.viewDidLoad()
 
         self.navigationItem.title = "Top Items"
-        self.view.backgroundColor = .white
         self.tableView.register(cellClass: PostTableViewCell.self)
         self.addRefreshControl()
         self.presenter?.viewIsReady()

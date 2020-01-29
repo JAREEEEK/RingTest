@@ -31,7 +31,9 @@ final class PostTableViewCell: UITableViewCell, TableCell {
         self.authorLabel.text = model.author
         self.timeLabel.text = model.createdAt
         self.commentsLabel.text = model.comments
+        self.thumbnailImageView?.image = model.photo.image
         model.photo.completeDownload = { [weak self] image in
+            guard let image = image else { return }
             self?.thumbnailImageView?.image = image
         }
 
