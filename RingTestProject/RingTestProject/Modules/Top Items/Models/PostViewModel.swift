@@ -7,23 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 final class PostViewModel {
-    let title: String?
-    let author: String?
-    let createdAt: String?
-    let comments: String?
+    let title: String
+    let author: String
+    let createdAt: String
+    let comments: String
     let image: AsyncImage
 
-    init(title: String?,
-         author: String?,
-         createdAt: String?,
-         comments: String?,
-         image: AsyncImage) {
-        self.title = title
-        self.author = author
-        self.createdAt = createdAt
-        self.comments = comments
-        self.image = image
+    init(post: Post) {
+        let date = Date(timeIntervalSince1970: post.created.valueOrEmpty)
+        self.title = post.title.valueOrEmpty
+        self.author = "Posted by \(post.author.valueOrEmpty)"
+        self.createdAt = date.getDiffStringTime()
+        self.comments = "\(post.numberOfComments.valueOrEmpty) comments"
+        self.image = AsyncImage(url: post.thumbnailWebLink.valueOrEmpty,
+                                placeholderImage: UIImage(named: "placeholder.png") ?? UIImage())
     }
 }

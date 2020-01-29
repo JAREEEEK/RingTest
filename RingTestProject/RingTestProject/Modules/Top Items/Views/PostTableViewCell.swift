@@ -33,5 +33,10 @@ final class PostTableViewCell: UITableViewCell, TableCell {
         self.authorLabel.text = model.author
         self.timeLabel.text = model.createdAt
         self.commentsLabel.text = model.comments
+        model.image.completeDownload = { [weak self] image in
+            self?.thumbnailImageView?.image = image
+        }
+
+        model.image.startDownload()
     }
 }

@@ -27,7 +27,7 @@ class AsyncImage {
 
     init(url: String,
          placeholderImage: UIImage = #imageLiteral(resourceName: "imagePlaceholder") ,
-         imageDownloadHelper: ImageDownloadHelperProtocol) {
+         imageDownloadHelper: ImageDownloadHelperProtocol = ImageDownloadHelper()) {
         self.url = URL(string: url)!
         self.placeholder = placeholderImage
         self.imageDownloadHelper = imageDownloadHelper

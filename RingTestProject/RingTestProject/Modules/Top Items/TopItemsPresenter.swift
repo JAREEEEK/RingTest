@@ -46,17 +46,12 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
 
         children.forEach { child in
             let post = child.data
-            let date = Date(timeIntervalSince1970: post.created ?? 0) ?? Date()
-            let model = PostViewModel(title: post.title,
-                                      author: post.author,
-                                      createdAt: "Created",
-                                      comments: String(post.numberOfComments ?? 0))
+            let model = PostViewModel(post: post)
             let element = TableElement(identifier: PostTableViewCell.identifier,
                                        model: model as AnyObject,
                                        onSelect: .empty)
             views.append(element)
         }
-
 
         return TopItemsProps(state: .posts(views))
     }

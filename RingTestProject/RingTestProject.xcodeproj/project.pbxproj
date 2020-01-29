@@ -35,6 +35,8 @@
 		E4602FE623E0A697001E7978 /* UINib+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FE523E0A697001E7978 /* UINib+Extensions.swift */; };
 		E4602FEA23E17614001E7978 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FE923E17614001E7978 /* AsyncImage.swift */; };
 		E4602FEC23E1766F001E7978 /* ImageDownloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FEB23E1766F001E7978 /* ImageDownloadHelper.swift */; };
+		E4602FEE23E182A3001E7978 /* Optionals+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FED23E182A3001E7978 /* Optionals+Extensions.swift */; };
+		E4602FF023E1850D001E7978 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FEF23E1850D001E7978 /* Date+Extensions.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
 		E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */; };
 		E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */; };
@@ -83,6 +85,8 @@
 		E4602FE523E0A697001E7978 /* UINib+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINib+Extensions.swift"; sourceTree = "<group>"; };
 		E4602FE923E17614001E7978 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		E4602FEB23E1766F001E7978 /* ImageDownloadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadHelper.swift; sourceTree = "<group>"; };
+		E4602FED23E182A3001E7978 /* Optionals+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optionals+Extensions.swift"; sourceTree = "<group>"; };
+		E4602FEF23E1850D001E7978 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				E4602FDD23E07D6E001E7978 /* Array+Extensions.swift */,
 				E4602FE323E0A642001E7978 /* UITableView+Extensions.swift */,
 				E4602FE523E0A697001E7978 /* UINib+Extensions.swift */,
+				E4602FED23E182A3001E7978 /* Optionals+Extensions.swift */,
+				E4602FEF23E1850D001E7978 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				E4602F9823E06941001E7978 /* NetworkLayer.swift in Sources */,
 				E4602FAA23E06D6C001E7978 /* TopItemsInteractor.swift in Sources */,
 				E4602FCC23E0734D001E7978 /* Localization.swift in Sources */,
+				E4602FEE23E182A3001E7978 /* Optionals+Extensions.swift in Sources */,
 				E4602FBB23E06FEE001E7978 /* BaseViewController.swift in Sources */,
 				E4592F4923E05D2C00102B8D /* RedditAPI.swift in Sources */,
 				E4602FE023E0987B001E7978 /* StoryboardInstantiable.swift in Sources */,
@@ -454,6 +461,7 @@
 				E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */,
 				E4602FB823E06F77001E7978 /* TopItemsProps.swift in Sources */,
 				E4602FEC23E1766F001E7978 /* ImageDownloadHelper.swift in Sources */,
+				E4602FF023E1850D001E7978 /* Date+Extensions.swift in Sources */,
 				E4602F9623E06041001E7978 /* Post.swift in Sources */,
 				E4602FE623E0A697001E7978 /* UINib+Extensions.swift in Sources */,
 				E4602FA923E06D6C001E7978 /* TopItemsAssembly.swift in Sources */,
