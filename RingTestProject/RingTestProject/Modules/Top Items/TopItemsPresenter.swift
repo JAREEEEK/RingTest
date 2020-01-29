@@ -57,7 +57,7 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
             let post = child.data
             let model = PostViewModel(post: post)
             let element = TableElement(model: model as AnyObject,
-                                       onSelect: .empty)
+                                       onSelect: CommandWith { [weak self] in self?.didSelect(post: post) })
             views.append(element)
         }
 
@@ -72,5 +72,10 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
 
     private func onNextPage() {
         self.interactor.loadMoreItems()
+    }
+
+    private func didSelect(post: Post) {
+        guard let link = post.preview?.images.first?.source?.url else { return }
+        self.router.showFullImage(with: link)
     }
 }

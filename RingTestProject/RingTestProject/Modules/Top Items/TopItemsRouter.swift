@@ -14,4 +14,11 @@ final class TopItemsRouter: TopItemsRouterProtocol {
     init(view: UIViewController) {
         self.viewController = view
     }
+
+    func showFullImage(with link: String) {
+        let viewController = PhotoAssembly.assemble(with: link)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.modalPresentationStyle = .automatic
+        self.viewController?.present(navigationController, animated: true, completion: nil)
+    }
 }

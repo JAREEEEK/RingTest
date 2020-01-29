@@ -22,6 +22,10 @@ extension RedditAPI {
         let limit = URLQueryItem(name: "limit", value: String(limit))
         components?.queryItems = [limit]
 
+        // It is necessary to obtain correct images urls
+        let rawJson = URLQueryItem(name: "raw_json", value: String(1))
+        components?.queryItems?.append(rawJson)
+
         if let before = before {
             let beforeItem = URLQueryItem(name: "before", value: before)
             components?.queryItems?.append(beforeItem)

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: Router -
 protocol TopItemsRouterProtocol: class {
-
+    func showFullImage(with link: String)
 }
 
 // MARK: Presenter -

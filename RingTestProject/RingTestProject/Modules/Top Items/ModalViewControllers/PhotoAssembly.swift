@@ -8,11 +8,11 @@
 import UIKit
 
 final class PhotoAssembly {
-    static func assemble() -> UIViewController {
-        let view = PhotoViewController()
+    static func assemble(with link: String) -> UIViewController {
+        let view = PhotoViewController.instantiateViewController()
         let interactor = PhotoInteractor()
         let router = PhotoRouter(view: view)
-        let presenter = PhotoPresenter(interface: view, interactor: interactor, router: router)
+        let presenter = PhotoPresenter(link: link, interface: view, interactor: interactor, router: router)
 
         view.presenter = presenter
         interactor.presenter = presenter

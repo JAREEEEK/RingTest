@@ -108,6 +108,12 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
         model.photo.cancelDownloading()
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let element = props.state.posts?[safe: indexPath.row] {
+            element.onSelect?.perform()
+        }
+    }
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let count = props.state.posts?.count, indexPath.row == count - 2 {
             self.showFooterActivityView()

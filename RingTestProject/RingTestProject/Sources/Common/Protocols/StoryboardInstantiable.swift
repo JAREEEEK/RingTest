@@ -26,7 +26,7 @@ extension StoryboardInstantiable where Self: UIViewController {
         assert((bundle ?? Bundle.main).path(forResource: fileName, ofType: "storyboardc") != nil,
                "Can't load storyboard of given name")
         let storyboard = UIStoryboard(name: fileName, bundle: bundle)
-        return storyboard.instantiateInitialViewController() as! Self // swiftlint:disable:this force_cast
+        return storyboard.instantiateInitialViewController() as! Self
     }
 
     static func instantiateViewController(identifier: String, bundle: Bundle? = nil) -> Self {

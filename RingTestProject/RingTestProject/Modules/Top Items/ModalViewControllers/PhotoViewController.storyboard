@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lhy-LU-Yq3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -15,38 +15,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="keJ-dN-CcG">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IQb-Ih-2zJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="IQb-Ih-2zJ" firstAttribute="top" secondItem="7rb-oi-AlX" secondAttribute="top" id="0jd-ng-weh"/>
-                                    <constraint firstItem="IQb-Ih-2zJ" firstAttribute="leading" secondItem="7rb-oi-AlX" secondAttribute="leading" id="BRh-1J-mDW"/>
-                                    <constraint firstItem="7rb-oi-AlX" firstAttribute="trailing" secondItem="IQb-Ih-2zJ" secondAttribute="trailing" id="VC8-YK-H9K"/>
-                                    <constraint firstItem="7rb-oi-AlX" firstAttribute="bottom" secondItem="IQb-Ih-2zJ" secondAttribute="bottom" id="sX3-00-7Fg"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="RMX-zk-h0D"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="7rb-oi-AlX"/>
-                            </scrollView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMq-nU-ldF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <viewLayoutGuide key="safeArea" id="z3d-ld-sov"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="yHg-HF-y7m" firstAttribute="bottom" secondItem="keJ-dN-CcG" secondAttribute="bottom" id="8Hm-hi-JRV"/>
-                            <constraint firstItem="keJ-dN-CcG" firstAttribute="leading" secondItem="yHg-HF-y7m" secondAttribute="leading" id="Ehq-KF-BR9"/>
-                            <constraint firstItem="yHg-HF-y7m" firstAttribute="trailing" secondItem="keJ-dN-CcG" secondAttribute="trailing" id="dZk-7z-Owg"/>
-                            <constraint firstItem="keJ-dN-CcG" firstAttribute="top" secondItem="yHg-HF-y7m" secondAttribute="top" id="w31-Gh-EwA"/>
+                            <constraint firstItem="tMq-nU-ldF" firstAttribute="trailing" secondItem="yHg-HF-y7m" secondAttribute="trailing" id="2B6-BT-Drt"/>
+                            <constraint firstItem="tMq-nU-ldF" firstAttribute="top" secondItem="yHg-HF-y7m" secondAttribute="top" id="GuX-WO-RX5"/>
+                            <constraint firstItem="tMq-nU-ldF" firstAttribute="leading" secondItem="yHg-HF-y7m" secondAttribute="leading" id="MYj-Tu-9tm"/>
+                            <constraint firstItem="tMq-nU-ldF" firstAttribute="bottom" secondItem="yHg-HF-y7m" secondAttribute="bottom" id="Ptp-pn-y2W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yHg-HF-y7m"/>
                     </view>
                     <connections>
-                        <outlet property="imageScrollView" destination="keJ-dN-CcG" id="s9N-OD-V9b"/>
-                        <outlet property="imageView" destination="IQb-Ih-2zJ" id="beh-Is-tV7"/>
+                        <outlet property="webView" destination="tMq-nU-ldF" id="y5O-gd-ctw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXx-2u-7tj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="DQ1-Ba-5Av">
+                    <connections>
+                        <action selector="doubleTapImage:" destination="lhy-LU-Yq3" id="9bQ-FD-TFG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="85.714285714285708"/>
         </scene>
