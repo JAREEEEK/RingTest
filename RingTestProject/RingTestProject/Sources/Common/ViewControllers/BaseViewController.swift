@@ -11,7 +11,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
     private let activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.hidesWhenStopped = true
         return activityIndicator
     }()

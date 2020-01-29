@@ -47,30 +47,41 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmS-zE-Crl">
+                        <rect key="frame" x="8" y="9.5" width="100" height="97"/>
+                        <connections>
+                            <action selector="didTapThumbnailButton:" destination="j7A-wg-D9c" eventType="touchUpInside" id="VFc-r5-lwJ"/>
+                        </connections>
+                    </button>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 <constraints>
                     <constraint firstItem="idB-5i-3xr" firstAttribute="centerY" secondItem="nmC-ua-49v" secondAttribute="centerY" id="0X6-zc-qNU"/>
                     <constraint firstItem="mf0-sx-ByK" firstAttribute="width" secondItem="tUy-8s-OkI" secondAttribute="width" id="2XC-Ex-a6H"/>
                     <constraint firstItem="mf0-sx-ByK" firstAttribute="top" secondItem="tUy-8s-OkI" secondAttribute="bottom" constant="8" id="7mS-HM-jsD"/>
+                    <constraint firstItem="MmS-zE-Crl" firstAttribute="width" secondItem="idB-5i-3xr" secondAttribute="width" id="81H-GO-Z9c"/>
                     <constraint firstItem="mf0-sx-ByK" firstAttribute="leading" secondItem="idB-5i-3xr" secondAttribute="trailing" constant="8" id="91v-tY-Eob"/>
                     <constraint firstItem="idB-5i-3xr" firstAttribute="leading" secondItem="nmC-ua-49v" secondAttribute="leading" constant="8" id="CbU-eO-cyE"/>
                     <constraint firstItem="C9F-2y-eCm" firstAttribute="top" secondItem="mf0-sx-ByK" secondAttribute="bottom" constant="8" id="IUW-nC-FrR"/>
                     <constraint firstItem="C9F-2y-eCm" firstAttribute="width" secondItem="mf0-sx-ByK" secondAttribute="width" id="Q8P-o8-UFh"/>
+                    <constraint firstItem="MmS-zE-Crl" firstAttribute="centerY" secondItem="idB-5i-3xr" secondAttribute="centerY" id="Qwc-R4-VbO"/>
                     <constraint firstAttribute="bottom" secondItem="C9F-2y-eCm" secondAttribute="bottom" constant="9.5" id="VXg-U8-njJ"/>
                     <constraint firstItem="C9F-2y-eCm" firstAttribute="leading" secondItem="idB-5i-3xr" secondAttribute="trailing" constant="8" id="WMe-zA-BZD"/>
                     <constraint firstItem="tUy-8s-OkI" firstAttribute="width" secondItem="Ei8-qE-lL2" secondAttribute="width" id="aCq-TP-OoA"/>
                     <constraint firstItem="tUy-8s-OkI" firstAttribute="top" secondItem="Ei8-qE-lL2" secondAttribute="bottom" constant="8" id="cCd-ek-APh"/>
+                    <constraint firstItem="MmS-zE-Crl" firstAttribute="height" secondItem="idB-5i-3xr" secondAttribute="height" multiplier="0.97" id="cWX-fu-0ob"/>
                     <constraint firstItem="tUy-8s-OkI" firstAttribute="leading" secondItem="idB-5i-3xr" secondAttribute="trailing" constant="8" id="dLM-na-7Uw"/>
                     <constraint firstItem="Ei8-qE-lL2" firstAttribute="leading" secondItem="idB-5i-3xr" secondAttribute="trailing" constant="8" id="fxa-B2-1UI"/>
                     <constraint firstAttribute="trailing" secondItem="Ei8-qE-lL2" secondAttribute="trailing" constant="8" id="hLJ-lM-Om3"/>
                     <constraint firstItem="Ei8-qE-lL2" firstAttribute="top" secondItem="nmC-ua-49v" secondAttribute="top" constant="8" id="nBz-AF-lEb"/>
+                    <constraint firstItem="MmS-zE-Crl" firstAttribute="centerX" secondItem="idB-5i-3xr" secondAttribute="centerX" id="yZA-e6-dC2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="smZ-MT-fku"/>
             <connections>
                 <outlet property="authorLabel" destination="tUy-8s-OkI" id="51S-sM-Bs6"/>
                 <outlet property="commentsLabel" destination="C9F-2y-eCm" id="Xa8-QO-BNX"/>
+                <outlet property="thumbnailButton" destination="MmS-zE-Crl" id="vy8-9h-MI5"/>
                 <outlet property="thumbnailImageView" destination="idB-5i-3xr" id="Klr-9P-48L"/>
                 <outlet property="timeLabel" destination="mf0-sx-ByK" id="3Z2-JL-CU2"/>
                 <outlet property="titleLabel" destination="Ei8-qE-lL2" id="FkP-BZ-rHN"/>

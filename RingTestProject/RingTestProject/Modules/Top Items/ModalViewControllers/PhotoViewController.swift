@@ -21,7 +21,6 @@ final class PhotoViewController: BaseViewController, PhotoViewProtocol, Storyboa
 
     // MARK: - Dependencies
 	var presenter: PhotoPresenterProtocol?
-    private let localization = LocalizationTopItems()
 
     // MARK: - View controller lifecycle
 	override func viewDidLoad() {
@@ -39,8 +38,8 @@ final class PhotoViewController: BaseViewController, PhotoViewProtocol, Storyboa
     // MARK: - PhotoViewProtocol
     func showError(with text: String) {
         self.showAlert(text: text,
-                       alertTitle: self.localization.alertTitleError(),
-                       actionText: self.localization.alertMessageOk())
+                       alertTitle: "Error",
+                       actionText: "Ok")
     }
 
     // MARK: - Private functions

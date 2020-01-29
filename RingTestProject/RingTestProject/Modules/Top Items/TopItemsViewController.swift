@@ -19,7 +19,6 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
     @IBOutlet weak var tableView: UITableView!
 	var presenter: TopItemsPresenterProtocol?
     private let refreshControl = UIRefreshControl()
-    private let localization = LocalizationTopItems()
 
     // MARK: View Controller lifecycle
 	override func viewDidLoad() {
@@ -39,8 +38,8 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
     // MARK: TopItemsViewProtocol
     func showError(with text: String) {
         self.showAlert(text: text,
-                       alertTitle: self.localization.alertTitleError(),
-                       actionText: self.localization.alertMessageOk())
+                       alertTitle: "Error",
+                       actionText: "Ok")
     }
 
     func showFooterActivityView() {
@@ -106,12 +105,6 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let model = props.state.posts?[safe: indexPath.row]?.model as? PostViewModel else { return }
         model.photo.cancelDownloading()
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let element = props.state.posts?[safe: indexPath.row] {
-            element.onSelect?.perform()
-        }
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

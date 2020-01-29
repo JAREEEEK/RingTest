@@ -15,6 +15,12 @@ final class PostTableViewCell: UITableViewCell, TableCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var thumbnailButton: UIButton!
+    private var element: TableElement?
+
+    @IBAction func didTapThumbnailButton(_ sender: UIButton) {
+        self.element?.onSelect?.perform()
+    }
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -26,6 +32,8 @@ final class PostTableViewCell: UITableViewCell, TableCell {
     }
 
     func setup(with element: TableElement) {
+        self.element = element
+
         guard let model = element.model as? PostViewModel else { return }
         self.titleLabel.text = model.title
         self.authorLabel.text = model.author
