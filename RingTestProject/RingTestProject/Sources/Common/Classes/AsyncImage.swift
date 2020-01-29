@@ -26,14 +26,14 @@ class AsyncImage {
     private var isDownloading: Bool = false
 
     init(url: String,
-         placeholderImage: UIImage = #imageLiteral(resourceName: "imagePlaceholder") ,
+         placeholderImage: UIImage = #imageLiteral(resourceName: "placeholder"),
          imageDownloadHelper: ImageDownloadHelperProtocol = ImageDownloadHelper()) {
         self.url = URL(string: url)!
         self.placeholder = placeholderImage
         self.imageDownloadHelper = imageDownloadHelper
     }
 
-    func startDownload() {
+    func startDownloading() {
         if imageStore != nil {
             completeDownload?(image)
         } else {
@@ -47,5 +47,9 @@ class AsyncImage {
                 }
             })
         }
+    }
+
+    func cancelDownloading() {
+        self.imageDownloadHelper.cancel()
     }
 }

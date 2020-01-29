@@ -8,6 +8,9 @@
 import UIKit
 
 final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutputProtocol {
+    typealias Props = TopItemsProps
+    typealias State = Props.State
+
     // MARK: - Dependencies
     weak private var view: TopItemsViewProtocol?
     private let interactor: TopItemsInteractorInputProtocol
@@ -24,6 +27,7 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
 
     // MARK: - TopItemsPresenterProtocol
     func viewIsReady() {
+        self.changeViewState(with: .loading)
         self.interactor.loadTopItems()
     }
 
@@ -41,18 +45,24 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
     }
 
     // MARK: - Props generation
-    private func makeProps(with children: [Child]) -> TopItemsProps {
+    private func makeProps(with children: [Child]) -> Props {
         var views: [TableElement] = []
 
         children.forEach { child in
             let post = child.data
             let model = PostViewModel(post: post)
-            let element = TableElement(identifier: PostTableViewCell.identifier,
-                                       model: model as AnyObject,
+            let element = TableElement(model: model as AnyObject,
                                        onSelect: .empty)
             views.append(element)
         }
 
-        return TopItemsProps(state: .posts(views))
+        return Props(state: .posts(views))
+    }
+
+    // MARK: - Private functions
+    private func changeViewState(with newState: State) {
+        guard let view = view else { return }
+        view.props = Props.stateLens.set(newState,
+                                         view.props)
     }
 }

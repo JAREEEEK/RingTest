@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 final class PostTableViewCell: UITableViewCell, TableCell {
-    static let identifier = "PostTableViewCell"
-
     @IBOutlet weak var thumbnailImageView: UIImageView?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -33,10 +31,10 @@ final class PostTableViewCell: UITableViewCell, TableCell {
         self.authorLabel.text = model.author
         self.timeLabel.text = model.createdAt
         self.commentsLabel.text = model.comments
-        model.image.completeDownload = { [weak self] image in
+        model.photo.completeDownload = { [weak self] image in
             self?.thumbnailImageView?.image = image
         }
 
-        model.image.startDownload()
+        model.photo.startDownloading()
     }
 }

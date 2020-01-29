@@ -14,7 +14,7 @@ final class PostViewModel {
     let author: String
     let createdAt: String
     let comments: String
-    let image: AsyncImage
+    let photo: AsyncImage
 
     init(post: Post) {
         let date = Date(timeIntervalSince1970: post.created.valueOrEmpty)
@@ -22,7 +22,6 @@ final class PostViewModel {
         self.author = "Posted by \(post.author.valueOrEmpty)"
         self.createdAt = date.getDiffStringTime()
         self.comments = "\(post.numberOfComments.valueOrEmpty) comments"
-        self.image = AsyncImage(url: post.thumbnailWebLink.valueOrEmpty,
-                                placeholderImage: UIImage(named: "placeholder.png") ?? UIImage())
+        self.photo = AsyncImage(url: post.thumbnailWebLink.valueOrEmpty)
     }
 }

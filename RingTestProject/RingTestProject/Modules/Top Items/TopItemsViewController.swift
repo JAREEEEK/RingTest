@@ -25,6 +25,7 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
 	override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = "Top Items"
         self.view.backgroundColor = .white
         self.tableView.register(cellClass: PostTableViewCell.self)
         self.addRefreshControl()
@@ -76,6 +77,7 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
             self.showActivityView()
         case .posts(_):
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
             self.hideActivityView()
         }
     }
@@ -88,9 +90,8 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let element = props.state.posts?[safe: indexPath.row],
-            let cell = tableView.dequeueReusableCell(withIdentifier: element.identifier,
-                                                     for: indexPath) as? TableCell {
+        if let element = props.state.posts?[safe: indexPath.row] {
+            let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setup(with: element)
 
             return cell
@@ -100,6 +101,11 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let model = props.state.posts?[safe: indexPath.row]?.model as? PostViewModel else { return }
+        model.photo.cancelDownloading()
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
