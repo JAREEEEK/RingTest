@@ -10,12 +10,13 @@ import Combine
 
 final class TopItemsInteractor: TopItemsInteractorInputProtocol {
     weak var presenter: TopItemsInteractorOutputProtocol?
+    var lastSeenItem: String?
     private var request: AnyCancellable?
     private var before: String?
     private var after: String?
 
     func loadTopItems() {
-        request = RedditAPI.topItems(limit: 20)
+        request = RedditAPI.topItems(limit: 20, after: lastSeenItem)
             .sink(receiveCompletion: { errorData in
                 switch errorData {
                 case .failure(let error):
@@ -51,6 +52,7 @@ final class TopItemsInteractor: TopItemsInteractorInputProtocol {
     func clear() {
         self.before = nil
         self.after = nil
+        self.lastSeenItem = nil
     }
 
     func cancelRequest() {

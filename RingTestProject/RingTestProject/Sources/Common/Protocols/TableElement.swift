@@ -14,6 +14,7 @@ protocol TableCell: UITableViewCell {
 }
 
 struct TableElement {
+    let elementId: String
     let model: AnyObject
     let onSelect: Command?
 }

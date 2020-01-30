@@ -41,7 +41,7 @@ final class PostTableViewCell: UITableViewCell, TableCell {
         self.commentsLabel.text = model.comments
         self.thumbnailImageView?.image = model.photo.image
         model.photo.completeDownload = { [weak self] image in
-            guard let image = image else { return }
+            guard let image = image else { self?.thumbnailButton.isUserInteractionEnabled = false; return }
             self?.thumbnailImageView?.image = image
         }
 

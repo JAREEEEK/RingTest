@@ -56,8 +56,11 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
         children.forEach { child in
             let post = child.data
             let model = PostViewModel(post: post)
-            let element = TableElement(model: model as AnyObject,
-                                       onSelect: CommandWith { [weak self] in self?.didSelect(post: post) })
+            let element = TableElement(
+                elementId: "t3_\(post.postId)",
+                model: model as AnyObject,
+                onSelect: CommandWith { [weak self] in self?.didSelect(post: post) }
+            )
             views.append(element)
         }
 

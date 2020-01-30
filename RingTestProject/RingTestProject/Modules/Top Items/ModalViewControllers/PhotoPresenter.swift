@@ -52,8 +52,7 @@ final class PhotoPresenter: PhotoPresenterProtocol, PhotoInteractorOutputProtoco
     // MARK: - Props generation
     private func makeProps(with link: String) -> Props {
         Props(state: .photo(link),
-              didPushSaveButton: CommandWith { [weak self] in self?.didPushSaveButton() },
-              didPushCancelButton: CommandWith { [weak self] in self?.didPushCancelButton() })
+              didPushSaveButton: CommandWith { [weak self] in self?.didPushSaveButton() })
     }
 
     // MARK: - Private functions

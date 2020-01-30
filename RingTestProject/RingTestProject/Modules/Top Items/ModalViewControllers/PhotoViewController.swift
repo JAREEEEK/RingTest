@@ -16,6 +16,12 @@ final class PhotoViewController: BaseViewController, PhotoViewProtocol, Storyboa
         }
     }
 
+    // MARK: - Default
+    enum Default: String {
+        case title = "Full sized image"
+        case photoLink = "PhotoLink"
+    }
+
     // MARK: - Outlets
     @IBOutlet weak var webView: WKWebView!
 
@@ -25,7 +31,9 @@ final class PhotoViewController: BaseViewController, PhotoViewProtocol, Storyboa
     // MARK: - View controller lifecycle
 	override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = Default.title.rawValue
         self.setupNavigationBar()
+        self.userActivity = NSUserActivity(activityType: ActivityType.photo.rawValue)
         self.presenter?.viewIsReady()
     }
 
@@ -61,18 +69,19 @@ final class PhotoViewController: BaseViewController, PhotoViewProtocol, Storyboa
             target: self,
             action: #selector(didPushSaveButton(_:))
         )
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonItem.SystemItem.cancel,
-            target: self,
-            action: #selector(didPushCancelButton(_:)))
     }
 
     // MARK: - Actions
     @objc func didPushSaveButton(_ sender: UIButton) {
         self.props.didPushSaveButton.perform()
     }
+}
 
-    @objc func didPushCancelButton(_ sender: UIButton) {
-        self.props.didPushCancelButton.perform()
+extension PhotoViewController {
+    override func updateUserActivityState(_ activity: NSUserActivity) {
+        super.updateUserActivityState(activity)
+        guard let link = props.state.photo else { return }
+        let userInfo: [AnyHashable: Any] = [Default.photoLink.rawValue: link]
+        self.userActivity?.userInfo = userInfo
     }
 }

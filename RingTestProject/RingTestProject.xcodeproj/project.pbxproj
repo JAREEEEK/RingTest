@@ -44,6 +44,7 @@
 		E460301223E1BD3D001E7978 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301123E1BD3D001E7978 /* CustomError.swift */; };
 		E460301423E1CDC0001E7978 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301323E1CDC0001E7978 /* PhotoRouter.swift */; };
 		E460301623E1D2A3001E7978 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301523E1D2A3001E7978 /* ImageSaver.swift */; };
+		E460301C23E2C78E001E7978 /* StateRestorationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301B23E2C78E001E7978 /* StateRestorationRouter.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
 		E47204D423E03B1F00A6DA0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */; };
 		E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */; };
@@ -100,6 +101,7 @@
 		E460301123E1BD3D001E7978 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		E460301323E1CDC0001E7978 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
 		E460301523E1D2A3001E7978 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		E460301B23E2C78E001E7978 /* StateRestorationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationRouter.swift; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47204D123E03B1F00A6DA0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E47204D323E03B1F00A6DA0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				E4602FD323E0752B001E7978 /* Lens.swift */,
+				E460301B23E2C78E001E7978 /* StateRestorationRouter.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				E4602FEE23E182A3001E7978 /* Optionals+Extensions.swift in Sources */,
 				E4602FBB23E06FEE001E7978 /* BaseViewController.swift in Sources */,
 				E4592F4923E05D2C00102B8D /* RedditAPI.swift in Sources */,
+				E460301C23E2C78E001E7978 /* StateRestorationRouter.swift in Sources */,
 				E4602FE023E0987B001E7978 /* StoryboardInstantiable.swift in Sources */,
 				E4602FD423E0752B001E7978 /* Lens.swift in Sources */,
 				E4602FB423E06EFE001E7978 /* Command.swift in Sources */,

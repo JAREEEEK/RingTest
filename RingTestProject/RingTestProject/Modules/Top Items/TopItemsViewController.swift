@@ -15,18 +15,26 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
         }
     }
 
+    // MARK: - Default
+    enum Default: String {
+        case title = "Top Items"
+        case lastWatchedItem = "LastWatchedItem"
+    }
+
     // MARK: - Dependencies
     @IBOutlet weak var tableView: UITableView!
 	var presenter: TopItemsPresenterProtocol?
     private let refreshControl = UIRefreshControl()
+    private var lastSeenItemId: String?
 
     // MARK: View Controller lifecycle
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Top Items"
+        self.navigationItem.title = Default.title.rawValue
         self.tableView.register(cellClass: PostTableViewCell.self)
         self.addRefreshControl()
+        self.userActivity = NSUserActivity(activityType: ActivityType.topItems.rawValue)
         self.presenter?.viewIsReady()
     }
 
@@ -92,7 +100,7 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
         if let element = props.state.posts?[safe: indexPath.row] {
             let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setup(with: element)
-
+            
             return cell
         }
         return UITableViewCell()
@@ -108,6 +116,10 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let element = props.state.posts?[safe: indexPath.row] {
+            self.lastSeenItemId = element.elementId
+        }
+
         if let count = props.state.posts?.count, indexPath.row == count - 2 {
             self.showFooterActivityView()
             self.props.onNextPage.perform()
@@ -118,5 +130,15 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
         if refreshControl.isRefreshing {
             self.presenter?.refreshData()
         }
+    }
+}
+
+// MARK: State Restoration
+extension TopItemsViewController {
+    override func updateUserActivityState(_ activity: NSUserActivity) {
+        super.updateUserActivityState(activity)
+        guard let lastSeenItemId = lastSeenItemId else { return }
+        let userInfo: [AnyHashable: Any] = [Default.lastWatchedItem.rawValue: lastSeenItemId]
+        self.userActivity?.userInfo = userInfo
     }
 }
