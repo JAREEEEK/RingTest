@@ -2,10 +2,11 @@
 //  PhotoRouter.swift
 //  RingTestProject
 //
-//  Created by Yaroslav Nosik on 29.01.2020.
+//  Created by Yaroslav Nosik on 30.01.2020.
 //  Copyright © 2020 Yaroslav Nosik. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 final class PhotoRouter: PhotoRouterProtocol {
@@ -15,8 +16,8 @@ final class PhotoRouter: PhotoRouterProtocol {
     init(view: UIViewController) {
         self.viewController = view
     }
-
+    
     func dismiss() {
-        self.viewController?.dismiss(animated: true, completion: nil)
+        self.viewController?.navigationController?.popViewController(animated: true)
     }
 }

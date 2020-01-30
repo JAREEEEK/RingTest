@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E406A21A23E2DD3E00F4ECC5 /* TopItemsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A21923E2DD3E00F4ECC5 /* TopItemsUnitTests.swift */; };
+		E406A21D23E2DEFF00F4ECC5 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A21C23E2DEFF00F4ECC5 /* BaseError.swift */; };
+		E406A22123E2F47600F4ECC5 /* TopItemsTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = E406A21F23E2DF9200F4ECC5 /* TopItemsTestData.json */; };
+		E406A22423E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A22323E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift */; };
+		E406A22623E2F95300F4ECC5 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A22523E2F95300F4ECC5 /* PhotoRouter.swift */; };
 		E4592F4923E05D2C00102B8D /* RedditAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4592F4823E05D2C00102B8D /* RedditAPI.swift */; };
 		E4602F9623E06041001E7978 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602F9523E06041001E7978 /* Post.swift */; };
 		E4602F9823E06941001E7978 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602F9723E06941001E7978 /* NetworkLayer.swift */; };
@@ -42,7 +47,6 @@
 		E460300F23E1B879001E7978 /* PhotoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460300923E1B878001E7978 /* PhotoAssembly.swift */; };
 		E460301023E1B879001E7978 /* PhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460300A23E1B878001E7978 /* PhotoInteractor.swift */; };
 		E460301223E1BD3D001E7978 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301123E1BD3D001E7978 /* CustomError.swift */; };
-		E460301423E1CDC0001E7978 /* PhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301323E1CDC0001E7978 /* PhotoRouter.swift */; };
 		E460301623E1D2A3001E7978 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301523E1D2A3001E7978 /* ImageSaver.swift */; };
 		E460301C23E2C78E001E7978 /* StateRestorationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E460301B23E2C78E001E7978 /* StateRestorationRouter.swift */; };
 		E47204D223E03B1F00A6DA0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204D123E03B1F00A6DA0D /* AppDelegate.swift */; };
@@ -64,6 +68,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E406A21923E2DD3E00F4ECC5 /* TopItemsUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsUnitTests.swift; sourceTree = "<group>"; };
+		E406A21C23E2DEFF00F4ECC5 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
+		E406A21F23E2DF9200F4ECC5 /* TopItemsTestData.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = TopItemsTestData.json; sourceTree = "<group>"; };
+		E406A22323E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenterUnitTests.swift; sourceTree = "<group>"; };
+		E406A22523E2F95300F4ECC5 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
 		E4592F4823E05D2C00102B8D /* RedditAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAPI.swift; sourceTree = "<group>"; };
 		E4602F9523E06041001E7978 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E4602F9723E06941001E7978 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
@@ -99,7 +108,6 @@
 		E460300923E1B878001E7978 /* PhotoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAssembly.swift; sourceTree = "<group>"; };
 		E460300A23E1B878001E7978 /* PhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInteractor.swift; sourceTree = "<group>"; };
 		E460301123E1BD3D001E7978 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
-		E460301323E1CDC0001E7978 /* PhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRouter.swift; sourceTree = "<group>"; };
 		E460301523E1D2A3001E7978 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		E460301B23E2C78E001E7978 /* StateRestorationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRestorationRouter.swift; sourceTree = "<group>"; };
 		E47204CE23E03B1F00A6DA0D /* RingTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RingTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +140,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E406A21523E2DCDA00F4ECC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E47204EA23E03B2100A6DA0D /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E406A21623E2DCEE00F4ECC5 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E406A22223E2F4ED00F4ECC5 /* FullSized Photo */,
+				E406A21723E2DCF300F4ECC5 /* TopItems */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E406A21723E2DCF300F4ECC5 /* TopItems */ = {
+			isa = PBXGroup;
+			children = (
+				E406A21923E2DD3E00F4ECC5 /* TopItemsUnitTests.swift */,
+			);
+			path = TopItems;
+			sourceTree = "<group>";
+		};
+		E406A21823E2DD0400F4ECC5 /* FullSized Photo */ = {
+			isa = PBXGroup;
+			children = (
+				E460300223E1B7F2001E7978 /* Props */,
+				E4602FF423E1B50A001E7978 /* PhotoViewController.storyboard */,
+				E460300523E1B878001E7978 /* PhotoPresenter.swift */,
+				E460300723E1B878001E7978 /* PhotoViewController.swift */,
+				E460300823E1B878001E7978 /* PhotoProtocols.swift */,
+				E460300923E1B878001E7978 /* PhotoAssembly.swift */,
+				E460300A23E1B878001E7978 /* PhotoInteractor.swift */,
+				E406A22523E2F95300F4ECC5 /* PhotoRouter.swift */,
+			);
+			path = "FullSized Photo";
+			sourceTree = "<group>";
+		};
+		E406A21B23E2DEF300F4ECC5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E406A21C23E2DEFF00F4ECC5 /* BaseError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E406A21E23E2DF6300F4ECC5 /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				E406A21F23E2DF9200F4ECC5 /* TopItemsTestData.json */,
+			);
+			path = "Test Data";
+			sourceTree = "<group>";
+		};
+		E406A22223E2F4ED00F4ECC5 /* FullSized Photo */ = {
+			isa = PBXGroup;
+			children = (
+				E406A22323E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift */,
+			);
+			path = "FullSized Photo";
+			sourceTree = "<group>";
+		};
 		E4592F4523E05C8F00102B8D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +273,7 @@
 		E4602F9D23E06D3E001E7978 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E406A21823E2DD0400F4ECC5 /* FullSized Photo */,
 				E4602F9E23E06D49001E7978 /* Top Items */,
 			);
 			path = Modules;
@@ -209,7 +282,6 @@
 		E4602F9E23E06D49001E7978 /* Top Items */ = {
 			isa = PBXGroup;
 			children = (
-				E4602FF123E1B4CF001E7978 /* ModalViewControllers */,
 				E4602FD523E0759F001E7978 /* Views */,
 				E4602FB523E06F60001E7978 /* Props */,
 				E4602FAC23E06DFC001E7978 /* Models */,
@@ -299,21 +371,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E4602FF123E1B4CF001E7978 /* ModalViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E460300223E1B7F2001E7978 /* Props */,
-				E4602FF423E1B50A001E7978 /* PhotoViewController.storyboard */,
-				E460300523E1B878001E7978 /* PhotoPresenter.swift */,
-				E460300723E1B878001E7978 /* PhotoViewController.swift */,
-				E460300823E1B878001E7978 /* PhotoProtocols.swift */,
-				E460300923E1B878001E7978 /* PhotoAssembly.swift */,
-				E460300A23E1B878001E7978 /* PhotoInteractor.swift */,
-				E460301323E1CDC0001E7978 /* PhotoRouter.swift */,
-			);
-			path = ModalViewControllers;
-			sourceTree = "<group>";
-		};
 		E460300223E1B7F2001E7978 /* Props */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,8 +413,11 @@
 		E47204E723E03B2100A6DA0D /* RingTestProjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				E406A21E23E2DF6300F4ECC5 /* Test Data */,
+				E406A21B23E2DEF300F4ECC5 /* Common */,
+				E406A21623E2DCEE00F4ECC5 /* Modules */,
+				E406A21523E2DCDA00F4ECC5 /* Supporting Files */,
 				E47204E823E03B2100A6DA0D /* RingTestProjectTests.swift */,
-				E47204EA23E03B2100A6DA0D /* Info.plist */,
 			);
 			path = RingTestProjectTests;
 			sourceTree = "<group>";
@@ -449,6 +509,7 @@
 				E47204DE23E03B2000A6DA0D /* LaunchScreen.storyboard in Resources */,
 				E4602FDC23E07835001E7978 /* PostTableViewCell.xib in Resources */,
 				E47204DB23E03B2000A6DA0D /* Assets.xcassets in Resources */,
+				E406A22123E2F47600F4ECC5 /* TopItemsTestData.json in Resources */,
 				E4602FE223E09974001E7978 /* Main.storyboard in Resources */,
 				E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */,
 			);
@@ -471,7 +532,7 @@
 				E4602FEA23E17614001E7978 /* AsyncImage.swift in Sources */,
 				E460301023E1B879001E7978 /* PhotoInteractor.swift in Sources */,
 				E4602FA623E06D6C001E7978 /* TopItemsRouter.swift in Sources */,
-				E460301423E1CDC0001E7978 /* PhotoRouter.swift in Sources */,
+				E406A22623E2F95300F4ECC5 /* PhotoRouter.swift in Sources */,
 				E4602FA723E06D6C001E7978 /* TopItemsViewController.swift in Sources */,
 				E4602F9A23E06971001E7978 /* NetworkLogger.swift in Sources */,
 				E4602FE423E0A642001E7978 /* UITableView+Extensions.swift in Sources */,
@@ -512,6 +573,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E406A21A23E2DD3E00F4ECC5 /* TopItemsUnitTests.swift in Sources */,
+				E406A22423E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift in Sources */,
+				E406A21D23E2DEFF00F4ECC5 /* BaseError.swift in Sources */,
 				E47204E923E03B2100A6DA0D /* RingTestProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,7 +769,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76GG7HFJPV;
-				INFOPLIST_FILE = RingTestProjectTests/Info.plist;
+				INFOPLIST_FILE = "RingTestProjectTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -727,7 +791,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76GG7HFJPV;
-				INFOPLIST_FILE = RingTestProjectTests/Info.plist;
+				INFOPLIST_FILE = "RingTestProjectTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
