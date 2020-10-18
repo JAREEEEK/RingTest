@@ -54,7 +54,6 @@
 		E47204D923E03B1F00A6DA0D /* TopItemsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */; };
 		E47204DB23E03B2000A6DA0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47204DA23E03B2000A6DA0D /* Assets.xcassets */; };
 		E47204DE23E03B2000A6DA0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47204DC23E03B2000A6DA0D /* LaunchScreen.storyboard */; };
-		E47204E923E03B2100A6DA0D /* RingTestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47204E823E03B2100A6DA0D /* RingTestProjectTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +117,6 @@
 		E47204DD23E03B2000A6DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E47204DF23E03B2000A6DA0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E47204E423E03B2100A6DA0D /* RingTestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RingTestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E47204E823E03B2100A6DA0D /* RingTestProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingTestProjectTests.swift; sourceTree = "<group>"; };
 		E47204EA23E03B2100A6DA0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -417,7 +415,6 @@
 				E406A21B23E2DEF300F4ECC5 /* Common */,
 				E406A21623E2DCEE00F4ECC5 /* Modules */,
 				E406A21523E2DCDA00F4ECC5 /* Supporting Files */,
-				E47204E823E03B2100A6DA0D /* RingTestProjectTests.swift */,
 			);
 			path = RingTestProjectTests;
 			sourceTree = "<group>";
@@ -576,7 +573,6 @@
 				E406A21A23E2DD3E00F4ECC5 /* TopItemsUnitTests.swift in Sources */,
 				E406A22423E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift in Sources */,
 				E406A21D23E2DEFF00F4ECC5 /* BaseError.swift in Sources */,
-				E47204E923E03B2100A6DA0D /* RingTestProjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
