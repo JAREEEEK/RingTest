@@ -11,10 +11,10 @@ import XCTest
 @testable import RingTestProject
 
 final class TopItemsPresenterTests: XCTestCase {
-    var sut: TopItemsPresenter?
-    fileprivate var mockView: MockTopItemsView?
-    fileprivate var mockRouter: MockTopItemsRouter?
-    fileprivate var mockInteractor: MockTopItemsInteractor?
+    private var sut: TopItemsPresenter?
+    private var mockView: MockTopItemsView?
+    private var mockRouter: MockTopItemsRouter?
+    private var mockInteractor: MockTopItemsInteractor?
 
     override func setUp() {
         self.mockView = MockTopItemsView()
@@ -96,7 +96,7 @@ final class TopItemsPresenterTests: XCTestCase {
     }
 }
 
-fileprivate final class MockTopItemsView: TopItemsViewProtocol {
+private final class MockTopItemsView: TopItemsViewProtocol {
     var props: TopItemsProps = .initial
     var didShowError = false
 
@@ -105,7 +105,7 @@ fileprivate final class MockTopItemsView: TopItemsViewProtocol {
     }
 }
 
-fileprivate final class MockTopItemsInteractor: TopItemsInteractorInputProtocol {
+private final class MockTopItemsInteractor: TopItemsInteractorInputProtocol {
     var processing = false
     var fail = false
     var noReturn = false
@@ -154,7 +154,7 @@ fileprivate final class MockTopItemsInteractor: TopItemsInteractorInputProtocol 
     }
 }
 
-fileprivate final class MockTopItemsRouter: TopItemsRouterProtocol {
+private final class MockTopItemsRouter: TopItemsRouterProtocol {
     var didShowFullImage = false
 
     func showFullImage(with link: String) {
