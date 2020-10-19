@@ -39,6 +39,10 @@ struct Post: Codable {
     var preview: Preview?
     var numberOfComments: Int?
     var link: String?
+    
+    var imageLink: String? {
+        preview?.images.first?.source?.url
+    }
 
     private enum CodingKeys: String, CodingKey {
         case postId = "id"

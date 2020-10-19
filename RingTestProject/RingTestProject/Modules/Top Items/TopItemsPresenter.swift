@@ -79,7 +79,7 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
     }
 
     private func didSelect(post: Post) {
-        guard let link = post.preview?.images.first?.source?.url else { return }
+        guard let link = post.imageLink else { return }
         self.router.showFullImage(with: link)
     }
 }

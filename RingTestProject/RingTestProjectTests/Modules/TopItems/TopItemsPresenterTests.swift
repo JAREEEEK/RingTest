@@ -41,8 +41,6 @@ final class TopItemsPresenterTests: XCTestCase {
 
     // MARK: - View
     func testLoadingStateWhenViewIsReady() {
-        mockInteractor.noReturn = true
-        
         XCTAssertFalse(mockView.props.state.isLoading, "precondition")
 
         sut.viewIsReady()
@@ -51,8 +49,6 @@ final class TopItemsPresenterTests: XCTestCase {
     }
 
     func testLoadingStateWhenRefreshData() {
-        mockInteractor.noReturn = true
-
         XCTAssertFalse(mockView.props.state.isLoading, "precondition")
 
         sut.refreshData()
@@ -61,8 +57,6 @@ final class TopItemsPresenterTests: XCTestCase {
     }
 
     func testUpdatesViewWhenSuccessIsReturned() throws {
-        mockInteractor.noReturn = true
-
         sut.viewIsReady()
 
         XCTAssertTrue(mockView.props.state.isLoading, "precondition")
@@ -73,49 +67,50 @@ final class TopItemsPresenterTests: XCTestCase {
     }
 
     func testWhenFailureItShowsError() {
-        XCTAssertFalse(mockView.didShowError, "precondition")
+        XCTAssertEqual(mockView.shownErrors, [], "precondition")
 
         sut.didFailLoading(with: BaseError(code: -1, message: "Empty error"))
 
-        XCTAssertTrue(mockView.didShowError)
+        XCTAssertEqual(mockView.shownErrors, ["Empty error"])
     }
 
     // MARK: - Interactor
     func testInteractorStartsLoadPost() {
-        XCTAssertFalse(mockInteractor.processing, "precondition")
+        XCTAssertEqual(mockInteractor.messages, [], "precondition")
 
         sut.viewIsReady()
 
-        XCTAssertTrue(mockInteractor.processing)
+        XCTAssertEqual(mockInteractor.messages, [.loadTopItems])
     }
 
     func testInteractorStartsLoadNextPage() throws {
         sut.didLoad(posts: try filledData())
         
-        XCTAssertFalse(mockInteractor.processing, "precondition")
+        XCTAssertEqual(mockInteractor.messages, [], "precondition")
 
         mockView.props.onNextPage.perform()
         
-        XCTAssertTrue(mockInteractor.processing)
+        XCTAssertEqual(mockInteractor.messages, [.loadMoreItems])
     }
 
     func testInteractorClear() {
-        XCTAssertFalse(mockInteractor.didClearData, "precondition")
+        XCTAssertEqual(mockInteractor.messages, [], "precondition")
 
         sut.refreshData()
         
-        XCTAssertTrue(mockInteractor.didClearData)
+        XCTAssertEqual(mockInteractor.messages, [.clear, .loadTopItems])
     }
 
     // MARK: - Router
     func testShowFullImage() throws {
-        sut.didLoad(posts: try filledData())
+        let posts = try filledData()
+        sut.didLoad(posts: posts)
 
-        XCTAssertFalse(mockRouter.didShowFullImage, "precondition")
+        XCTAssertEqual(mockRouter.shownImageLinks, [], "precondition")
 
-        mockView.props.state.posts?[safe: 0]?.onSelect?.perform()
+        mockView.props.state.posts?.first?.onSelect?.perform()
         
-        XCTAssertTrue(mockRouter.didShowFullImage)
+        XCTAssertEqual(mockRouter.shownImageLinks, [posts.first?.data.imageLink])
     }
     
     // MARK: - Helpers
@@ -134,66 +129,46 @@ final class TopItemsPresenterTests: XCTestCase {
 
 private final class MockTopItemsView: TopItemsViewProtocol {
     var props: TopItemsProps = .initial
-    var didShowError = false
+    private(set) var shownErrors = [String]()
 
     func showError(with text: String) {
-        didShowError = true
+        shownErrors.append(text)
     }
 }
 
 private final class MockTopItemsInteractor: TopItemsInteractorInputProtocol {
-    var processing = false
-    var fail = false
-    var noReturn = false
+    enum Message {
+        case loadTopItems
+        case loadMoreItems
+        case clear
+        case cancelRequest
+    }
+    
+    private(set) var messages = [Message]()
+    
     var presenter: TopItemsInteractorOutputProtocol?
-    var didClearData = false
-    var didCancelRequest = false
 
     func loadTopItems() {
-        processing = true
-        guard !noReturn else { return }
-        if fail {
-            presenter?.didFailLoading(with: BaseError.init(code: -1, message: "Empty error"))
-        } else {
-            guard let children = filledData() else { return }
-            presenter?.didLoad(posts: children)
-        }
+        messages.append(.loadTopItems)
     }
 
     func loadMoreItems() {
-        processing = true
-        guard !noReturn else { return }
-        if fail {
-            presenter?.didFailLoading(with: BaseError.init(code: -1, message: "Empty error"))
-        } else {
-            guard let children = filledData() else { return }
-            presenter?.didLoadMore(posts: children)
-        }
+        messages.append(.loadMoreItems)
     }
 
     func clear() {
-        didClearData = true
+        messages.append(.clear)
     }
 
     func cancelRequest() {
-        didCancelRequest = true
-    }
-
-    private func filledData() -> [Child]? {
-        guard let url = Bundle.main.url(forResource: "TopItemsTestData",
-                                        withExtension: "json"),
-            let jsonData = try? Data(contentsOf: url) else { return nil }
-
-        let topItems = try? JSONDecoder().decode(TopItems.self, from: jsonData)
-
-        return topItems?.data.children
+        messages.append(.cancelRequest)
     }
 }
 
 private final class MockTopItemsRouter: TopItemsRouterProtocol {
-    var didShowFullImage = false
+    private(set) var shownImageLinks = [String]()
 
     func showFullImage(with link: String) {
-        didShowFullImage = true
+        shownImageLinks.append(link)
     }
 }
