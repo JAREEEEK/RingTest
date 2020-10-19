@@ -19,7 +19,6 @@
 		E4602FA523E06D6C001E7978 /* TopItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602F9F23E06D6C001E7978 /* TopItemsPresenter.swift */; };
 		E4602FA623E06D6C001E7978 /* TopItemsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA023E06D6C001E7978 /* TopItemsRouter.swift */; };
 		E4602FA723E06D6C001E7978 /* TopItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA123E06D6C001E7978 /* TopItemsViewController.swift */; };
-		E4602FA823E06D6C001E7978 /* TopItemsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA223E06D6C001E7978 /* TopItemsProtocols.swift */; };
 		E4602FA923E06D6C001E7978 /* TopItemsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA323E06D6C001E7978 /* TopItemsAssembly.swift */; };
 		E4602FAA23E06D6C001E7978 /* TopItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FA423E06D6C001E7978 /* TopItemsInteractor.swift */; };
 		E4602FAE23E06E0F001E7978 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4602FAD23E06E0F001E7978 /* PostViewModel.swift */; };
@@ -79,7 +78,6 @@
 		E4602F9F23E06D6C001E7978 /* TopItemsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsPresenter.swift; sourceTree = "<group>"; };
 		E4602FA023E06D6C001E7978 /* TopItemsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsRouter.swift; sourceTree = "<group>"; };
 		E4602FA123E06D6C001E7978 /* TopItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsViewController.swift; sourceTree = "<group>"; };
-		E4602FA223E06D6C001E7978 /* TopItemsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsProtocols.swift; sourceTree = "<group>"; };
 		E4602FA323E06D6C001E7978 /* TopItemsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsAssembly.swift; sourceTree = "<group>"; };
 		E4602FA423E06D6C001E7978 /* TopItemsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsInteractor.swift; sourceTree = "<group>"; };
 		E4602FAD23E06E0F001E7978 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				E4602F9F23E06D6C001E7978 /* TopItemsPresenter.swift */,
 				E4602FA023E06D6C001E7978 /* TopItemsRouter.swift */,
 				E4602FA123E06D6C001E7978 /* TopItemsViewController.swift */,
-				E4602FA223E06D6C001E7978 /* TopItemsProtocols.swift */,
 				E4602FA323E06D6C001E7978 /* TopItemsAssembly.swift */,
 				E4602FA423E06D6C001E7978 /* TopItemsInteractor.swift */,
 				E47204D723E03B1F00A6DA0D /* TopItemsViewController.storyboard */,
@@ -546,7 +543,6 @@
 				E460300B23E1B878001E7978 /* PhotoPresenter.swift in Sources */,
 				E4602FDA23E07766001E7978 /* PostTableViewCell.swift in Sources */,
 				E4602FAE23E06E0F001E7978 /* PostViewModel.swift in Sources */,
-				E4602FA823E06D6C001E7978 /* TopItemsProtocols.swift in Sources */,
 				E4602FB123E06E41001E7978 /* TableElement.swift in Sources */,
 				E460301623E1D2A3001E7978 /* ImageSaver.swift in Sources */,
 				E4602FDE23E07D6E001E7978 /* Array+Extensions.swift in Sources */,

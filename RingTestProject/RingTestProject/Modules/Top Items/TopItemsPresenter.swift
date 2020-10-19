@@ -7,43 +7,31 @@
 
 import UIKit
 
-final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutputProtocol {
+protocol TopItemsViewProtocol: class {
+    var props: TopItemsProps { get set }
+
+    func showError(with text: String)
+}
+
+final class TopItemsPresenter: TopItemsInteractorOutputProtocol {
     typealias Props = TopItemsProps
     typealias State = Props.State
 
     // MARK: - Dependencies
     weak private var view: TopItemsViewProtocol?
-    private let interactor: TopItemsInteractorInputProtocol
-    private let router: TopItemsRouterProtocol
 
     // MARK: - Initialization
-    init(interface: TopItemsViewProtocol,
-         interactor: TopItemsInteractorInputProtocol,
-         router: TopItemsRouterProtocol) {
+    init(interface: TopItemsViewProtocol) {
         self.view = interface
-        self.interactor = interactor
-        self.router = router
-    }
-
-    // MARK: - TopItemsPresenterProtocol
-    func viewIsReady() {
-        self.changeViewState(with: .loading)
-        self.interactor.loadTopItems()
-    }
-
-    func refreshData() {
-        self.changeViewState(with: .loading)
-        self.interactor.clear()
-        self.interactor.loadTopItems()
     }
 
     // MARK: - TopItemsInteractorOutputProtocol
-    func didLoad(posts: [Child]) {
-        self.view?.props = makeProps(with: posts)
+    func didStartLoading(cancel: @escaping () -> Void) {
+        changeViewState(with: .loading(cancel: CommandWith(action: cancel)))
     }
-
-    func didLoadMore(posts: [Child]) {
-        self.view?.props = makeProps(with: posts, isInitial: false)
+    
+    func didLoad(posts: [Child], after: String?, next: @escaping () -> Void) {
+        self.view?.props = makeProps(with: posts, isInitial: after == nil, next: next)
     }
 
     func didFailLoading(with error: Error) {
@@ -51,7 +39,7 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
     }
 
     // MARK: - Props generation
-    private func makeProps(with children: [Child], isInitial: Bool = true) -> Props {
+    private func makeProps(with children: [Child], isInitial: Bool = true, next: @escaping () -> Void) -> Props {
         var posts: [TableElement] = isInitial ? [] : self.view?.props.posts ?? []
 
         children.forEach { child in
@@ -59,27 +47,18 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
             let model = PostViewModel(post: post)
             let element = TableElement(
                 elementId: "t3_\(post.postId)",
-                model: model as AnyObject,
-                onSelect: CommandWith { [weak self] in self?.didSelect(post: post) }
+                model: model,
+                onSelect: .empty
             )
             posts.append(element)
         }
 
-        return Props(state: .partial(onNextPage: CommandWith { [weak self] in self?.onNextPage() }), posts: posts)
+        return Props(state: .partial(onNextPage: CommandWith { next() }), posts: posts)
     }
 
     // MARK: - Private functions
     private func changeViewState(with newState: State) {
         guard let view = view else { return }
         view.props = Props.stateLens.set(newState, view.props)
-    }
-
-    private func onNextPage() {
-        self.interactor.loadMoreItems()
-    }
-
-    private func didSelect(post: Post) {
-        guard let link = post.imageLink else { return }
-        self.router.showFullImage(with: link)
     }
 }

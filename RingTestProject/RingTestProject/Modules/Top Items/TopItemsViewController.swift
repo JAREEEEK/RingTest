@@ -23,10 +23,11 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
 
     // MARK: - Dependencies
     @IBOutlet weak var tableView: UITableView!
-	var presenter: TopItemsPresenterProtocol?
     private let refreshControl = UIRefreshControl()
-    private var lastSeenItemId: String?
-
+    var lastSeenItemId: String?
+    var onRefresh: ((String?) -> Void)?
+    var onSelection: ((PostViewModel) -> Void)?
+    
     // MARK: View Controller lifecycle
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
         self.tableView.register(cellClass: PostTableViewCell.self)
         self.addRefreshControl()
         self.userActivity = NSUserActivity(activityType: ActivityType.topItems.rawValue)
-        self.presenter?.viewIsReady()
+        self.onRefresh?(lastSeenItemId)
     }
 
     override func viewWillLayoutSubviews() {
@@ -67,7 +68,7 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
     // MARK: - Actions
     @objc private func onRefreshing() {
         if !self.tableView.isDragging {
-            self.presenter?.refreshData()
+            self.onRefresh?(nil)
         }
     }
 
@@ -80,7 +81,12 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
     private func setupState() {
         switch props.state {
         case .loading:
-            self.showActivityView()
+            if props.posts.isEmpty {
+                self.showActivityView()
+            } else {
+                self.showFooterActivityView()
+            }
+            
         case .idle, .partial:
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
@@ -100,7 +106,7 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
         if let element = props.posts[safe: indexPath.row] {
             let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setup(with: element)
-            
+            cell.onSelection = onSelection
             return cell
         }
         return UITableViewCell()
@@ -111,7 +117,7 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let model = props.posts[safe: indexPath.row]?.model as? PostViewModel else { return }
+        guard let model = props.posts[safe: indexPath.row]?.model else { return }
         model.photo.cancelDownloading()
     }
 
@@ -121,14 +127,13 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         if let next = self.props.onNextPage, indexPath.row == props.posts.count - 2 {
-            self.showFooterActivityView()
             next.perform()
         }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if refreshControl.isRefreshing {
-            self.presenter?.refreshData()
+            self.onRefresh?(nil)
         }
     }
 }

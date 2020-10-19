@@ -14,7 +14,7 @@ struct TopItemsProps {
 
     enum State {
         case idle
-        case loading
+        case loading(cancel: Command)
         case partial(onNextPage: Command)
     }
 
@@ -37,13 +37,7 @@ extension TopItemsProps {
 
 extension TopItemsProps.State {
     var isLoading: Bool {
-        get {
-            guard case .loading = self else { return false }
-            return true
-        }
-        set {
-            guard newValue else { fatalError("Setting false value forbidden") }
-            self = .loading
-        }
+        guard case .loading = self else { return false }
+        return true
     }
 }

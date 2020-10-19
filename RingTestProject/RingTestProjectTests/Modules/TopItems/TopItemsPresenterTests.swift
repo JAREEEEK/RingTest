@@ -13,18 +13,11 @@ import XCTest
 final class TopItemsPresenterTests: XCTestCase {
     private var sut: TopItemsPresenter!
     private var mockView: MockTopItemsView!
-    private var mockRouter: MockTopItemsRouter!
-    private var mockInteractor: MockTopItemsInteractor!
 
     override func setUp() {
         mockView = MockTopItemsView()
-        mockInteractor = MockTopItemsInteractor()
-        mockRouter = MockTopItemsRouter()
         
-        sut = TopItemsPresenter(
-            interface: mockView,
-            interactor: mockInteractor,
-            router: mockRouter)
+        sut = TopItemsPresenter(interface: mockView)
         
         super.setUp()
     }
@@ -33,33 +26,23 @@ final class TopItemsPresenterTests: XCTestCase {
         super.tearDown()
         sut = nil
         mockView = nil
-        mockInteractor = nil
-        mockRouter = nil
     }
 
     // MARK: - View
-    func testLoadingStateWhenViewIsReady() {
-        XCTAssertFalse(mockView.props.state.isLoading, "precondition")
-
-        sut.viewIsReady()
-        
-        XCTAssertTrue(mockView.props.state.isLoading)
-    }
-
     func testLoadingStateWhenRefreshData() {
         XCTAssertFalse(mockView.props.state.isLoading, "precondition")
 
-        sut.refreshData()
+        sut.didStartLoading(cancel: {})
 
         XCTAssertTrue(mockView.props.state.isLoading)
     }
 
     func testUpdatesViewWhenTopItemsReturned() throws {
-        sut.viewIsReady()
+        sut.didStartLoading(cancel: {})
 
         XCTAssertTrue(mockView.props.state.isLoading, "precondition")
         
-        sut.didLoad(posts: try filledData())
+        sut.didLoad(posts: try filledData(), after: nil, next: {})
 
         XCTAssertFalse(mockView.props.state.isLoading)
     }
@@ -69,11 +52,11 @@ final class TopItemsPresenterTests: XCTestCase {
         
         XCTAssertTrue(mockView.props.posts.isEmpty, "precondition")
         
-        sut.didLoad(posts: posts)
-
+        sut.didLoad(posts: posts, after: nil, next: {})
+        
         XCTAssertEqual(mockView.props.posts.count, posts.count)
         
-        sut.didLoad(posts: posts)
+        sut.didLoad(posts: posts, after: nil, next: {})
 
         XCTAssertEqual(mockView.props.posts.count, posts.count)
     }
@@ -83,21 +66,22 @@ final class TopItemsPresenterTests: XCTestCase {
         
         XCTAssertTrue(mockView.props.posts.isEmpty, "precondition")
         
-        sut.didLoad(posts: posts)
+        sut.didLoad(posts: posts, after: nil, next: {})
 
         XCTAssertEqual(mockView.props.posts.count, posts.count)
         
-        sut.didLoadMore(posts: posts)
+        let lastId = mockView.props.posts.last?.elementId
+        sut.didLoad(posts: posts, after: lastId, next: {})
 
         XCTAssertEqual(mockView.props.posts.count, posts.count * 2)
     }
     
     func testUpdatesViewWhenMoreItemsReturned() throws {
-        sut.viewIsReady()
+        sut.didStartLoading(cancel: {})
 
         XCTAssertTrue(mockView.props.state.isLoading, "precondition")
         
-        sut.didLoadMore(posts: try filledData())
+        sut.didLoad(posts: try filledData(), after: "any", next: {})
 
         XCTAssertFalse(mockView.props.state.isLoading)
     }
@@ -108,45 +92,6 @@ final class TopItemsPresenterTests: XCTestCase {
         sut.didFailLoading(with: BaseError(code: -1, message: "Empty error"))
 
         XCTAssertEqual(mockView.shownErrors, ["Empty error"])
-    }
-
-    // MARK: - Interactor
-    func testInteractorStartsLoadPost() {
-        XCTAssertEqual(mockInteractor.messages, [], "precondition")
-
-        sut.viewIsReady()
-
-        XCTAssertEqual(mockInteractor.messages, [.loadTopItems])
-    }
-
-    func testInteractorStartsLoadNextPage() throws {
-        sut.didLoad(posts: try filledData())
-        
-        XCTAssertEqual(mockInteractor.messages, [], "precondition")
-
-        mockView.props.onNextPage?.perform()
-        
-        XCTAssertEqual(mockInteractor.messages, [.loadMoreItems])
-    }
-
-    func testInteractorClear() {
-        XCTAssertEqual(mockInteractor.messages, [], "precondition")
-
-        sut.refreshData()
-        
-        XCTAssertEqual(mockInteractor.messages, [.clear, .loadTopItems])
-    }
-
-    // MARK: - Router
-    func testShowFullImage() throws {
-        let posts = try filledData()
-        sut.didLoad(posts: posts)
-
-        XCTAssertEqual(mockRouter.shownImageLinks, [], "precondition")
-
-        mockView.props.posts.first?.onSelect?.perform()
-        
-        XCTAssertEqual(mockRouter.shownImageLinks, [posts.first?.data.imageLink])
     }
     
     // MARK: - Helpers
@@ -169,35 +114,5 @@ private final class MockTopItemsView: TopItemsViewProtocol {
 
     func showError(with text: String) {
         shownErrors.append(text)
-    }
-}
-
-private final class MockTopItemsInteractor: TopItemsInteractorInputProtocol {
-    enum Message {
-        case loadTopItems
-        case loadMoreItems
-        case clear
-    }
-    
-    private(set) var messages = [Message]()
-    
-    func loadTopItems() {
-        messages.append(.loadTopItems)
-    }
-
-    func loadMoreItems() {
-        messages.append(.loadMoreItems)
-    }
-
-    func clear() {
-        messages.append(.clear)
-    }
-}
-
-private final class MockTopItemsRouter: TopItemsRouterProtocol {
-    private(set) var shownImageLinks = [String]()
-
-    func showFullImage(with link: String) {
-        shownImageLinks.append(link)
     }
 }

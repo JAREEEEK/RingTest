@@ -8,50 +8,32 @@
 import UIKit
 import Combine
 
-final class TopItemsInteractor: TopItemsInteractorInputProtocol {
-    weak var presenter: TopItemsInteractorOutputProtocol?
-    var lastSeenItem: String?
-    private var request: AnyCancellable?
-    private var before: String?
-    private var after: String?
+protocol TopItemsInteractorOutputProtocol: class {
+    func didStartLoading(cancel: @escaping () -> Void)
+    func didLoad(posts: [Child], after: String?, next: @escaping () -> Void)
+    func didFailLoading(with error: Error)
+}
 
-    func loadTopItems() {
-        request = RedditAPI.topItems(limit: 20, after: lastSeenItem)
-            .sink(receiveCompletion: { errorData in
-                switch errorData {
-                case .failure(let error):
-                    self.presenter?.didFailLoading(with: error)
-                default: break
-                }
-            }, receiveValue: { items in
-                self.before = items.data.before
-                self.after = items.data.after
-                self.presenter?.didLoad(posts: items.data.children)
-            })
+final class TopItemsInteractor {
+    private let output: TopItemsInteractorOutputProtocol
+
+    init(output: TopItemsInteractorOutputProtocol) {
+        self.output = output
     }
-
-    func loadMoreItems() {
-        // check if we can load more items
-        if after == nil { return }
-
-        // load more items
-        request = RedditAPI.topItems(limit: 20, before: before, after: after)
-            .sink(receiveCompletion: { errorData in
-                switch errorData {
-                case .failure(let error):
-                    self.presenter?.didFailLoading(with: error)
-                default: break
-                }
-            }, receiveValue: { items in
-                self.before = items.data.before
-                self.after = items.data.after
-                self.presenter?.didLoadMore(posts: items.data.children)
-            })
-    }
-
-    func clear() {
-        self.before = nil
-        self.after = nil
-        self.lastSeenItem = nil
+    
+    func loadTopItems(after: String?) {
+        output.didStartLoading(
+            cancel: RedditAPI.topItems(limit: 20, after: after)
+                .sink(receiveCompletion: { errorData in
+                    switch errorData {
+                    case .failure(let error):
+                        self.output.didFailLoading(with: error)
+                    default: break
+                    }
+                }, receiveValue: { items in
+                    self.output.didLoad(posts: items.data.children, after: after, next: { [weak self] in
+                        self?.loadTopItems(after: items.data.after)
+                    })
+                }).cancel)
     }
 }

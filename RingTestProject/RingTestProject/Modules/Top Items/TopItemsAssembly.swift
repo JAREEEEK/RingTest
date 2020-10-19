@@ -10,16 +10,17 @@ import UIKit
 final class TopItemsAssembly {
     static func assemble(userActivity: NSUserActivity? = nil) -> UIViewController {
         let view = TopItemsViewController.instantiateViewController()
-        let interactor = TopItemsInteractor()
         let router = TopItemsRouter(view: view)
-        let presenter = TopItemsPresenter(interface: view, interactor: interactor, router: router)
+        let presenter = TopItemsPresenter(interface: view)
+        let interactor = TopItemsInteractor(output: presenter)
 
-        view.presenter = presenter
-        interactor.presenter = presenter
+        view.onRefresh = interactor.loadTopItems(after:)
+        view.onSelection = router.showFullImage
+        
         if let userActivity = userActivity,
             userActivity.activityType == ActivityType.topItems.rawValue,
             let lastItem = userActivity.userInfo?[TopItemsViewController.Default.lastWatchedItem.rawValue] as? String {
-            interactor.lastSeenItem = lastItem
+            view.lastSeenItemId = lastItem
         }
 
         return view

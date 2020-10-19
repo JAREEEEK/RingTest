@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TopItemsRouter: TopItemsRouterProtocol {
+final class TopItemsRouter {
 
     private weak var viewController: UIViewController?
 
@@ -15,7 +15,9 @@ final class TopItemsRouter: TopItemsRouterProtocol {
         self.viewController = view
     }
 
-    func showFullImage(with link: String) {
+    func showFullImage(with post: PostViewModel) {
+        guard let link = post.imageLink else { return }
+
         let viewController = PhotoAssembly.assemble(with: link)
         self.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
