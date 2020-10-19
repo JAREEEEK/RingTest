@@ -93,11 +93,11 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return props.state.posts?.count ?? 0
+        return props.posts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let element = props.state.posts?[safe: indexPath.row] {
+        if let element = props.posts[safe: indexPath.row] {
             let cell: PostTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.setup(with: element)
             
@@ -111,16 +111,16 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let model = props.state.posts?[safe: indexPath.row]?.model as? PostViewModel else { return }
+        guard let model = props.posts[safe: indexPath.row]?.model as? PostViewModel else { return }
         model.photo.cancelDownloading()
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let element = props.state.posts?[safe: indexPath.row] {
+        if let element = props.posts[safe: indexPath.row] {
             self.lastSeenItemId = element.elementId
         }
 
-        if let count = props.state.posts?.count, indexPath.row == count - 2 {
+        if indexPath.row == props.posts.count - 2 {
             self.showFooterActivityView()
             self.props.onNextPage.perform()
         }

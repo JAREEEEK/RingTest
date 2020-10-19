@@ -67,29 +67,29 @@ final class TopItemsPresenterTests: XCTestCase {
     func testReplacesPostsWhenTopItemsReturned() throws {
         let posts = try filledData()
         
-        XCTAssertNil(mockView.props.state.posts, "precondition")
+        XCTAssertTrue(mockView.props.posts.isEmpty, "precondition")
         
         sut.didLoad(posts: posts)
 
-        XCTAssertEqual(mockView.props.state.posts?.count, posts.count)
+        XCTAssertEqual(mockView.props.posts.count, posts.count)
         
         sut.didLoad(posts: posts)
 
-        XCTAssertEqual(mockView.props.state.posts?.count, posts.count)
+        XCTAssertEqual(mockView.props.posts.count, posts.count)
     }
     
     func testAppendsPostsWhenMoreItemsReturned() throws {
         let posts = try filledData()
         
-        XCTAssertNil(mockView.props.state.posts, "precondition")
+        XCTAssertTrue(mockView.props.posts.isEmpty, "precondition")
         
         sut.didLoad(posts: posts)
 
-        XCTAssertEqual(mockView.props.state.posts?.count, posts.count)
+        XCTAssertEqual(mockView.props.posts.count, posts.count)
         
         sut.didLoadMore(posts: posts)
 
-        XCTAssertEqual(mockView.props.state.posts?.count, posts.count * 2)
+        XCTAssertEqual(mockView.props.posts.count, posts.count * 2)
     }
     
     func testUpdatesViewWhenMoreItemsReturned() throws {
@@ -144,7 +144,7 @@ final class TopItemsPresenterTests: XCTestCase {
 
         XCTAssertEqual(mockRouter.shownImageLinks, [], "precondition")
 
-        mockView.props.state.posts?.first?.onSelect?.perform()
+        mockView.props.posts.first?.onSelect?.perform()
         
         XCTAssertEqual(mockRouter.shownImageLinks, [posts.first?.data.imageLink])
     }

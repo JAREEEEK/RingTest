@@ -52,7 +52,7 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
 
     // MARK: - Props generation
     private func makeProps(with children: [Child], isInitial: Bool = true) -> Props {
-        var views: [TableElement] = isInitial ? [] : self.view?.props.state.posts ?? []
+        var posts: [TableElement] = isInitial ? [] : self.view?.props.posts ?? []
 
         children.forEach { child in
             let post = child.data
@@ -62,10 +62,10 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
                 model: model as AnyObject,
                 onSelect: CommandWith { [weak self] in self?.didSelect(post: post) }
             )
-            views.append(element)
+            posts.append(element)
         }
 
-        return Props(state: .posts(views), onNextPage: CommandWith { [weak self] in self?.onNextPage() })
+        return Props(state: .posts, posts: posts, onNextPage: CommandWith { [weak self] in self?.onNextPage() })
     }
 
     // MARK: - Private functions

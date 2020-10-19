@@ -10,23 +10,24 @@ import Foundation
 
 struct TopItemsProps {
     let state: State
+    let posts: [TableElement]
     let onNextPage: Command
 
     enum State {
         case idle
         case loading
-        case posts([TableElement])
+        case posts
     }
 
-    static let initial = TopItemsProps(state: .idle, onNextPage: .empty)
+    static let initial = TopItemsProps(state: .idle, posts: [], onNextPage: .empty)
 }
 
 extension TopItemsProps {
     static let stateLens = Lens<TopItemsProps, State>(
         get: { $0.state },
         set: { value, props in
-            TopItemsProps(state: value, onNextPage: props.onNextPage)
-    }
+            TopItemsProps(state: value, posts: props.posts, onNextPage: props.onNextPage)
+        }
     )
 }
 
@@ -39,18 +40,6 @@ extension TopItemsProps.State {
         set {
             guard newValue else { fatalError("Setting false value forbidden") }
             self = .loading
-        }
-    }
-
-    var posts: [TableElement]? {
-        get {
-            guard case let .posts(posts) = self else { return nil }
-            return posts
-        }
-        set {
-            guard let newValue = newValue else { fatalError("Setting nil value forbidden") }
-            /*Set self from the case has associated value or not*/
-            self = .posts(newValue)
         }
     }
 }
