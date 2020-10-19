@@ -11,7 +11,7 @@ import XCTest
 @testable import RingTestProject
 
 final class TopItemsPresenterTests: XCTestCase {
-    var presenter: TopItemsPresenter?
+    var sut: TopItemsPresenter?
     fileprivate var mockView: MockTopItemsView?
     fileprivate var mockRouter: MockTopItemsRouter?
     fileprivate var mockInteractor: MockTopItemsInteractor?
@@ -23,17 +23,17 @@ final class TopItemsPresenterTests: XCTestCase {
         guard let mockView = mockView,
             let mockInteractor = mockInteractor,
             let mockRouter = mockRouter else { return }
-        self.presenter = TopItemsPresenter(interface: mockView,
+        self.sut = TopItemsPresenter(interface: mockView,
                                            interactor: mockInteractor,
                                            router: mockRouter)
-        self.mockInteractor?.presenter = self.presenter
+        self.mockInteractor?.presenter = self.sut
 
         super.setUp()
     }
 
     override func tearDown() {
         super.tearDown()
-        self.presenter = nil
+        self.sut = nil
         self.mockView = nil
         self.mockInteractor = nil
         self.mockRouter = nil
@@ -43,54 +43,54 @@ final class TopItemsPresenterTests: XCTestCase {
     func testLoadingStateWhenViewIsReady() {
         guard let mockView = mockView else { return }
         self.mockInteractor?.noReturn = true
-        self.presenter?.viewIsReady()
+        self.sut?.viewIsReady()
         XCTAssertTrue(mockView.props.state.isLoading)
     }
 
     func testLoadingStateWhenRefreshData() {
         guard let mockView = mockView else { return }
         self.mockInteractor?.noReturn = true
-        self.presenter?.refreshData()
+        self.sut?.refreshData()
         XCTAssertTrue(mockView.props.state.isLoading)
     }
 
     func testUpdatesViewWhenSuccessIsReturned() {
         guard let mockView = mockView else { return }
-        self.presenter?.viewIsReady()
+        self.sut?.viewIsReady()
         XCTAssertFalse(mockView.props.state.isLoading)
     }
 
     func testWhenFailureItShowsError() {
         guard let mockView = mockView else { return }
         self.mockInteractor?.fail = true
-        self.presenter?.viewIsReady()
+        self.sut?.viewIsReady()
         XCTAssertTrue(mockView.didShowError)
     }
 
     // MARK: - Interactor
     func testInteractorStartsLoadPost() {
         guard let interactor = mockInteractor else { return }
-        self.presenter?.viewIsReady()
+        self.sut?.viewIsReady()
         XCTAssertTrue(interactor.processing)
     }
 
     func testInteractorStartsLoadNextPage() {
         guard let interactor = mockInteractor else { return }
-        self.presenter?.viewIsReady()
+        self.sut?.viewIsReady()
         self.mockView?.props.onNextPage.perform()
         XCTAssertTrue(interactor.processing)
     }
 
     func testInteractorClear() {
         guard let interactor = mockInteractor else { return }
-        self.presenter?.refreshData()
+        self.sut?.refreshData()
         XCTAssertTrue(interactor.didClearData)
     }
 
     // MARK: - Router
     func testShowFullImage() {
         guard let router = mockRouter else { return }
-        self.presenter?.viewIsReady()
+        self.sut?.viewIsReady()
         self.mockView?.props.state.posts?[safe: 0]?.onSelect?.perform()
         XCTAssertTrue(router.didShowFullImage)
     }
