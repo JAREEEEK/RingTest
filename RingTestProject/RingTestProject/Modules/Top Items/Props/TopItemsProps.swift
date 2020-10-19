@@ -13,11 +13,12 @@ struct TopItemsProps {
     let onNextPage: Command
 
     enum State {
+        case idle
         case loading
         case posts([TableElement])
     }
 
-    static let initial = TopItemsProps(state: .loading, onNextPage: .empty)
+    static let initial = TopItemsProps(state: .idle, onNextPage: .empty)
 }
 
 extension TopItemsProps {

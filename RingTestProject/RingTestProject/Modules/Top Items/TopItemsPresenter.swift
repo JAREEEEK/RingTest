@@ -32,6 +32,7 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
     }
 
     func refreshData() {
+        self.changeViewState(with: .loading)
         self.interactor.clear()
         self.interactor.loadTopItems()
     }

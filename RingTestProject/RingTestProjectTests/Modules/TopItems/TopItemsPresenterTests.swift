@@ -43,6 +43,8 @@ final class TopItemsPresenterTests: XCTestCase {
     func testLoadingStateWhenViewIsReady() {
         mockInteractor.noReturn = true
         
+        XCTAssertFalse(mockView.props.state.isLoading, "precondition")
+
         sut.viewIsReady()
         
         XCTAssertTrue(mockView.props.state.isLoading)
@@ -50,6 +52,8 @@ final class TopItemsPresenterTests: XCTestCase {
 
     func testLoadingStateWhenRefreshData() {
         mockInteractor.noReturn = true
+
+        XCTAssertFalse(mockView.props.state.isLoading, "precondition")
 
         sut.refreshData()
 

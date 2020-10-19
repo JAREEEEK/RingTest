@@ -81,7 +81,7 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
         switch props.state {
         case .loading:
             self.showActivityView()
-        case .posts(_):
+        case .idle, .posts:
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
             self.hideFooterActivityView()
