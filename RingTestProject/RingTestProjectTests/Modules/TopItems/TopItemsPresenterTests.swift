@@ -26,8 +26,6 @@ final class TopItemsPresenterTests: XCTestCase {
             interactor: mockInteractor,
             router: mockRouter)
         
-        mockInteractor.presenter = sut
-
         super.setUp()
     }
 
@@ -141,13 +139,10 @@ private final class MockTopItemsInteractor: TopItemsInteractorInputProtocol {
         case loadTopItems
         case loadMoreItems
         case clear
-        case cancelRequest
     }
     
     private(set) var messages = [Message]()
     
-    var presenter: TopItemsInteractorOutputProtocol?
-
     func loadTopItems() {
         messages.append(.loadTopItems)
     }
@@ -158,10 +153,6 @@ private final class MockTopItemsInteractor: TopItemsInteractorInputProtocol {
 
     func clear() {
         messages.append(.clear)
-    }
-
-    func cancelRequest() {
-        messages.append(.cancelRequest)
     }
 }
 

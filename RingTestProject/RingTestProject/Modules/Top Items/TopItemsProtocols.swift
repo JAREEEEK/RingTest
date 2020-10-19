@@ -30,7 +30,6 @@ protocol TopItemsInteractorInputProtocol: class {
     func loadTopItems()
     func loadMoreItems()
     func clear()
-    func cancelRequest()
     
     /* Presenter -> Interactor */
 }

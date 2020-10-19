@@ -54,8 +54,4 @@ final class TopItemsInteractor: TopItemsInteractorInputProtocol {
         self.after = nil
         self.lastSeenItem = nil
     }
-
-    func cancelRequest() {
-        request?.cancel()
-    }
 }
