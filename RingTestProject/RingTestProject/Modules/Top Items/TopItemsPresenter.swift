@@ -65,7 +65,7 @@ final class TopItemsPresenter: TopItemsPresenterProtocol, TopItemsInteractorOutp
             posts.append(element)
         }
 
-        return Props(state: .posts, posts: posts, onNextPage: CommandWith { [weak self] in self?.onNextPage() })
+        return Props(state: .partial(onNextPage: CommandWith { [weak self] in self?.onNextPage() }), posts: posts)
     }
 
     // MARK: - Private functions

@@ -81,7 +81,7 @@ final class TopItemsViewController: BaseViewController, TopItemsViewProtocol, St
         switch props.state {
         case .loading:
             self.showActivityView()
-        case .idle, .posts:
+        case .idle, .partial:
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
             self.hideFooterActivityView()
@@ -120,9 +120,9 @@ extension TopItemsViewController: UITableViewDelegate, UITableViewDataSource {
             self.lastSeenItemId = element.elementId
         }
 
-        if indexPath.row == props.posts.count - 2 {
+        if let next = self.props.onNextPage, indexPath.row == props.posts.count - 2 {
             self.showFooterActivityView()
-            self.props.onNextPage.perform()
+            next.perform()
         }
     }
 

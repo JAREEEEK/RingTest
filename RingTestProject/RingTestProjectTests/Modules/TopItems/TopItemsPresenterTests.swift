@@ -124,7 +124,7 @@ final class TopItemsPresenterTests: XCTestCase {
         
         XCTAssertEqual(mockInteractor.messages, [], "precondition")
 
-        mockView.props.onNextPage.perform()
+        mockView.props.onNextPage?.perform()
         
         XCTAssertEqual(mockInteractor.messages, [.loadMoreItems])
     }

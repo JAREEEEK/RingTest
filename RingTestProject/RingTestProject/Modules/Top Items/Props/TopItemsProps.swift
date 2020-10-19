@@ -11,24 +11,28 @@ import Foundation
 struct TopItemsProps {
     let state: State
     let posts: [TableElement]
-    let onNextPage: Command
 
     enum State {
         case idle
         case loading
-        case posts
+        case partial(onNextPage: Command)
     }
 
-    static let initial = TopItemsProps(state: .idle, posts: [], onNextPage: .empty)
+    static let initial = TopItemsProps(state: .idle, posts: [])
 }
 
 extension TopItemsProps {
     static let stateLens = Lens<TopItemsProps, State>(
         get: { $0.state },
         set: { value, props in
-            TopItemsProps(state: value, posts: props.posts, onNextPage: props.onNextPage)
+            TopItemsProps(state: value, posts: props.posts)
         }
     )
+    
+    var onNextPage: Command? {
+        guard case let .partial(onNextPage) = state else { return nil }
+        return onNextPage
+    }
 }
 
 extension TopItemsProps.State {
