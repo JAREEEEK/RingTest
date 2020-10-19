@@ -12,6 +12,10 @@ struct BaseError: Codable, LocalizedError {
     let code: BaseErrorCode
     let message: String
 
+    var errorDescription: String? {
+        message
+    }
+    
     init(code: Int, message: String) {
         self.code = BaseErrorCode(rawValue: code) ?? .unknownError
         self.message = message
