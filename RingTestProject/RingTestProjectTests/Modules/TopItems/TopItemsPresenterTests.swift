@@ -10,7 +10,7 @@ import Foundation
 import XCTest
 @testable import RingTestProject
 
-final class TopItemsUnitTests: XCTestCase {
+final class TopItemsPresenterTests: XCTestCase {
     var presenter: TopItemsPresenter?
     fileprivate var mockView: MockTopItemsView?
     fileprivate var mockRouter: MockTopItemsRouter?

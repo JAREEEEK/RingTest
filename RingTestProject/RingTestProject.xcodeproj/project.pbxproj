@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E406A21A23E2DD3E00F4ECC5 /* TopItemsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A21923E2DD3E00F4ECC5 /* TopItemsUnitTests.swift */; };
+		E406A21A23E2DD3E00F4ECC5 /* TopItemsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A21923E2DD3E00F4ECC5 /* TopItemsPresenterTests.swift */; };
 		E406A21D23E2DEFF00F4ECC5 /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A21C23E2DEFF00F4ECC5 /* BaseError.swift */; };
 		E406A22123E2F47600F4ECC5 /* TopItemsTestData.json in Resources */ = {isa = PBXBuildFile; fileRef = E406A21F23E2DF9200F4ECC5 /* TopItemsTestData.json */; };
 		E406A22423E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E406A22323E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift */; };
@@ -67,7 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E406A21923E2DD3E00F4ECC5 /* TopItemsUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsUnitTests.swift; sourceTree = "<group>"; };
+		E406A21923E2DD3E00F4ECC5 /* TopItemsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopItemsPresenterTests.swift; sourceTree = "<group>"; };
 		E406A21C23E2DEFF00F4ECC5 /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		E406A21F23E2DF9200F4ECC5 /* TopItemsTestData.json */ = {isa = PBXFileReference; explicitFileType = text.json; fileEncoding = 4; path = TopItemsTestData.json; sourceTree = "<group>"; };
 		E406A22323E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresenterUnitTests.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 		E406A21723E2DCF300F4ECC5 /* TopItems */ = {
 			isa = PBXGroup;
 			children = (
-				E406A21923E2DD3E00F4ECC5 /* TopItemsUnitTests.swift */,
+				E406A21923E2DD3E00F4ECC5 /* TopItemsPresenterTests.swift */,
 			);
 			path = TopItems;
 			sourceTree = "<group>";
@@ -570,7 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E406A21A23E2DD3E00F4ECC5 /* TopItemsUnitTests.swift in Sources */,
+				E406A21A23E2DD3E00F4ECC5 /* TopItemsPresenterTests.swift in Sources */,
 				E406A22423E2F51900F4ECC5 /* PhotoPresenterUnitTests.swift in Sources */,
 				E406A21D23E2DEFF00F4ECC5 /* BaseError.swift in Sources */,
 			);
