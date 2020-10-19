@@ -60,48 +60,75 @@ final class TopItemsPresenterTests: XCTestCase {
         XCTAssertTrue(mockView.props.state.isLoading)
     }
 
-    func testUpdatesViewWhenSuccessIsReturned() {
+    func testUpdatesViewWhenSuccessIsReturned() throws {
+        mockInteractor.noReturn = true
+
         sut.viewIsReady()
+
+        XCTAssertTrue(mockView.props.state.isLoading, "precondition")
+        
+        sut.didLoad(posts: try filledData())
 
         XCTAssertFalse(mockView.props.state.isLoading)
     }
 
     func testWhenFailureItShowsError() {
-        mockInteractor.fail = true
+        XCTAssertFalse(mockView.didShowError, "precondition")
 
-        sut.viewIsReady()
+        sut.didFailLoading(with: BaseError(code: -1, message: "Empty error"))
 
         XCTAssertTrue(mockView.didShowError)
     }
 
     // MARK: - Interactor
     func testInteractorStartsLoadPost() {
+        XCTAssertFalse(mockInteractor.processing, "precondition")
+
         sut.viewIsReady()
 
         XCTAssertTrue(mockInteractor.processing)
     }
 
-    func testInteractorStartsLoadNextPage() {
-        sut.viewIsReady()
+    func testInteractorStartsLoadNextPage() throws {
+        sut.didLoad(posts: try filledData())
         
+        XCTAssertFalse(mockInteractor.processing, "precondition")
+
         mockView.props.onNextPage.perform()
         
         XCTAssertTrue(mockInteractor.processing)
     }
 
     func testInteractorClear() {
+        XCTAssertFalse(mockInteractor.didClearData, "precondition")
+
         sut.refreshData()
         
         XCTAssertTrue(mockInteractor.didClearData)
     }
 
     // MARK: - Router
-    func testShowFullImage() {
-        sut.viewIsReady()
-        
+    func testShowFullImage() throws {
+        sut.didLoad(posts: try filledData())
+
+        XCTAssertFalse(mockRouter.didShowFullImage, "precondition")
+
         mockView.props.state.posts?[safe: 0]?.onSelect?.perform()
         
         XCTAssertTrue(mockRouter.didShowFullImage)
+    }
+    
+    // MARK: - Helpers
+    private func filledData() throws -> [Child] {
+        guard let url = Bundle.main.url(forResource: "TopItemsTestData",
+                                        withExtension: "json") else {
+            throw BaseError(code: 0, message: "Missing TopItemsTestData.json")
+        }
+
+        let jsonData = try Data(contentsOf: url)
+        let topItems = try JSONDecoder().decode(TopItems.self, from: jsonData)
+
+        return topItems.data.children
     }
 }
 
