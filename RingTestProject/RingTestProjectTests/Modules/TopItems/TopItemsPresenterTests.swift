@@ -54,12 +54,50 @@ final class TopItemsPresenterTests: XCTestCase {
         XCTAssertTrue(mockView.props.state.isLoading)
     }
 
-    func testUpdatesViewWhenSuccessIsReturned() throws {
+    func testUpdatesViewWhenTopItemsReturned() throws {
         sut.viewIsReady()
 
         XCTAssertTrue(mockView.props.state.isLoading, "precondition")
         
         sut.didLoad(posts: try filledData())
+
+        XCTAssertFalse(mockView.props.state.isLoading)
+    }
+    
+    func testReplacesPostsWhenTopItemsReturned() throws {
+        let posts = try filledData()
+        
+        XCTAssertNil(mockView.props.state.posts, "precondition")
+        
+        sut.didLoad(posts: posts)
+
+        XCTAssertEqual(mockView.props.state.posts?.count, posts.count)
+        
+        sut.didLoad(posts: posts)
+
+        XCTAssertEqual(mockView.props.state.posts?.count, posts.count)
+    }
+    
+    func testAppendsPostsWhenMoreItemsReturned() throws {
+        let posts = try filledData()
+        
+        XCTAssertNil(mockView.props.state.posts, "precondition")
+        
+        sut.didLoad(posts: posts)
+
+        XCTAssertEqual(mockView.props.state.posts?.count, posts.count)
+        
+        sut.didLoadMore(posts: posts)
+
+        XCTAssertEqual(mockView.props.state.posts?.count, posts.count * 2)
+    }
+    
+    func testUpdatesViewWhenMoreItemsReturned() throws {
+        sut.viewIsReady()
+
+        XCTAssertTrue(mockView.props.state.isLoading, "precondition")
+        
+        sut.didLoadMore(posts: try filledData())
 
         XCTAssertFalse(mockView.props.state.isLoading)
     }
